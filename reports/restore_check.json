@@ -1,0 +1,53 @@
+{
+  "check": "artifact_restore",
+  "restored_repository": "/tmp/aiopsdesk-restore-xitCkf",
+  "files_verified": 9,
+  "all_checksums_match": true,
+  "files": [
+    {
+      "file": "data/raw/tickets.csv",
+      "sha256": "27ffa4446d557278a8e1922b8f639fb9d104c13676c18927793e52e3f45c0151",
+      "matches": true
+    },
+    {
+      "file": "data/processed/excluded_rows.csv",
+      "sha256": "fba02d52528b2f05185bd8e5500d4d87baae2b5f230df261874a7bd41b7bd092",
+      "matches": true
+    },
+    {
+      "file": "data/processed/tickets_clean.csv",
+      "sha256": "7bcf9bf2e229e10bba22b469b91c4648948894723d3760685b5984b4741f007f",
+      "matches": true
+    },
+    {
+      "file": "data/splits/assignments.csv",
+      "sha256": "ea5deadddc96bf13eccf67438c8092129591cb6598051761df80404fa5ccd82f",
+      "matches": true
+    },
+    {
+      "file": "data/splits/test.csv",
+      "sha256": "bc3ef452017ca4d25cff8a7bf69ab47abf31e799efdfb08ff32d73a949d86337",
+      "matches": true
+    },
+    {
+      "file": "data/splits/train.csv",
+      "sha256": "4c8a12fa64a11769b316f0e15b0b4dd4e4018a63ff5ef125247fcf11b38927f1",
+      "matches": true
+    },
+    {
+      "file": "data/splits/validation.csv",
+      "sha256": "684b52974cab32bd430bf5809de1753c36017c20793f585972ecb000ad2aca98",
+      "matches": true
+    },
+    {
+      "file": "artifacts/baseline/category.pkl",
+      "sha256": "1ca72411aa9afdb373badddeec82b3c23ca63af2166b19fb5206e4321f636865",
+      "matches": true
+    },
+    {
+      "file": "artifacts/baseline/priority.pkl",
+      "sha256": "b1290b2e6736f48d2f9004b726659990669428b061b3c7caa8657a307b732aa1",
+      "matches": true
+    }
+  ]
+}

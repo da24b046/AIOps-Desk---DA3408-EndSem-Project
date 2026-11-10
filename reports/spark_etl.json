@@ -1,0 +1,16 @@
+{
+  "spark_version": "4.3.0",
+  "master": "local[2]",
+  "input_sha256": "27ffa4446d557278a8e1922b8f639fb9d104c13676c18927793e52e3f45c0151",
+  "input_rows": 500,
+  "excluded_category_rows": 88,
+  "retained_rows": 409,
+  "total_excluded_rows": 91,
+  "output": "data/spark/tickets.parquet",
+  "output_format": "parquet",
+  "python_output_matches": true,
+  "parquet_readback_matches": true,
+  "startup_seconds": 1.834,
+  "etl_seconds_including_validation_and_write": 3.883,
+  "input_rows_per_etl_second": 128.77
+}

@@ -17,3 +17,9 @@ __pycache__/
 # Local service state
 state/
 mlruns/
+
+# Spark output and temporary files
+spark-warehouse/
+metastore_db/
+derby.log
+artifacts/spark-*/
