@@ -1,0 +1,86 @@
+{
+  "parent_run_id": "43840ea679884553860e312d9dffea7b",
+  "ray_version": "2.60.0",
+  "test_set_used": false,
+  "search_config": {
+    "targets": [
+      "category",
+      "priority"
+    ],
+    "C_values": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "num_cpus": 2,
+    "max_concurrent_trials": 1
+  },
+  "trials": [
+    {
+      "target": "category",
+      "C": 0.5,
+      "accuracy": 0.7037037037037037,
+      "macro_f1": 0.6928571428571428,
+      "fit_seconds": 0.07302729299408384,
+      "mlflow_run_id": "624d4e7b619841ea8cf2a4d93a74ca1d"
+    },
+    {
+      "target": "category",
+      "C": 1.0,
+      "accuracy": 0.7283950617283951,
+      "macro_f1": 0.7139325435203094,
+      "fit_seconds": 0.03657975699752569,
+      "mlflow_run_id": "88f8fe0371074cc493ebf7efa9fe286c"
+    },
+    {
+      "target": "category",
+      "C": 2.0,
+      "accuracy": 0.7530864197530864,
+      "macro_f1": 0.7297348484848484,
+      "fit_seconds": 0.03861380500893574,
+      "mlflow_run_id": "34833d8544c340b0976bbfd15c0d0d06"
+    },
+    {
+      "target": "priority",
+      "C": 0.5,
+      "accuracy": 0.9012345679012346,
+      "macro_f1": 0.9004914004914004,
+      "fit_seconds": 0.03667181800119579,
+      "mlflow_run_id": "84c76f28bd2349d38d2e0f53bd6375bd"
+    },
+    {
+      "target": "priority",
+      "C": 1.0,
+      "accuracy": 0.9012345679012346,
+      "macro_f1": 0.9004914004914004,
+      "fit_seconds": 0.031110080002690665,
+      "mlflow_run_id": "1bad8af4956942b99f3feb93d24151ca"
+    },
+    {
+      "target": "priority",
+      "C": 2.0,
+      "accuracy": 0.8888888888888888,
+      "macro_f1": 0.8877943666307526,
+      "fit_seconds": 0.02877828099008184,
+      "mlflow_run_id": "97bd91ed9e80430aa14331b505526bcd"
+    }
+  ],
+  "best_validation_settings": {
+    "category": {
+      "target": "category",
+      "C": 2.0,
+      "accuracy": 0.7530864197530864,
+      "macro_f1": 0.7297348484848484,
+      "fit_seconds": 0.03861380500893574,
+      "mlflow_run_id": "34833d8544c340b0976bbfd15c0d0d06"
+    },
+    "priority": {
+      "target": "priority",
+      "C": 0.5,
+      "accuracy": 0.9012345679012346,
+      "macro_f1": 0.9004914004914004,
+      "fit_seconds": 0.03667181800119579,
+      "mlflow_run_id": "84c76f28bd2349d38d2e0f53bd6375bd"
+    }
+  }
+}

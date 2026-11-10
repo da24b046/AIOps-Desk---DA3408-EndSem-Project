@@ -1,0 +1,27 @@
+{
+  "selection_split": "validation",
+  "test_set_used": false,
+  "ray_parent_run_id": "43840ea679884553860e312d9dffea7b",
+  "source_report_sha256": "efa93b1eac192ec8bec562e88ca527c1fcc4941f2e2ad98b8c6af5c136867998",
+  "seed": 42,
+  "tfidf": {
+    "max_features": 5000,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "min_df": 2
+  },
+  "models": {
+    "category": {
+      "C": 2.0,
+      "max_iter": 1000,
+      "class_weight": "balanced"
+    },
+    "priority": {
+      "C": 0.5,
+      "max_iter": 1000,
+      "class_weight": "balanced"
+    }
+  }
+}
