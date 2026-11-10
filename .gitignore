@@ -7,7 +7,13 @@ __pycache__/
 .env
 
 # Raw datasets will be versioned with DVC later
-data/raw/
 
 # Prepared datasets
-data/processed/
+
+# Dataset splits
+
+# Model artifacts
+
+# Local service state
+state/
+mlruns/

@@ -1,0 +1,59 @@
+{
+  "seed": 42,
+  "input_sha256": "7bcf9bf2e229e10bba22b469b91c4648948894723d3760685b5984b4741f007f",
+  "similarity_method": "description token-set Jaccard",
+  "similarity_threshold": 0.85,
+  "similar_pairs": 7,
+  "groups": 405,
+  "largest_group": 4,
+  "checks": {
+    "ticket_ids_disjoint": true,
+    "detected_groups_disjoint": true,
+    "all_rows_assigned": true,
+    "all_labels_present_in_each_split": true
+  },
+  "splits": {
+    "train": {
+      "rows": 247,
+      "percentage": 60.39,
+      "category_counts": {
+        "Software": 138,
+        "Account": 43,
+        "Network": 40,
+        "Security": 26
+      },
+      "priority_counts": {
+        "Medium": 140,
+        "High": 107
+      }
+    },
+    "validation": {
+      "rows": 81,
+      "percentage": 19.8,
+      "category_counts": {
+        "Software": 46,
+        "Account": 14,
+        "Network": 14,
+        "Security": 7
+      },
+      "priority_counts": {
+        "Medium": 43,
+        "High": 38
+      }
+    },
+    "test": {
+      "rows": 81,
+      "percentage": 19.8,
+      "category_counts": {
+        "Software": 46,
+        "Account": 14,
+        "Network": 12,
+        "Security": 9
+      },
+      "priority_counts": {
+        "Medium": 44,
+        "High": 37
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "tracking_uri": "http://127.0.0.1:5000",
+  "experiment_id": "1",
+  "parent_run_id": "bf18189136ec4ad08a9ff9590cbdf37f",
+  "child_run_ids": {
+    "category_majority": "147a50228f71443c9c03ec98a93f8723",
+    "category_logistic_regression": "474b9235d8f04877b3eee8970a6825e4",
+    "priority_majority": "9b465820717245ab82730ceb46f4f042",
+    "priority_logistic_regression": "028424e2ae9740229cd00b68dfe0d32f"
+  },
+  "git_sha": "a74d69d03ec70e238d77eaf0814413f280c56344",
+  "git_dirty": true,
+  "test_set_used": false
+}
