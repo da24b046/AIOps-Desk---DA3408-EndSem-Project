@@ -1,0 +1,8 @@
+{
+  "model_version": "candidate-001",
+  "bundle_path": "artifacts/serving/candidate-001",
+  "mlflow_run_id": "25d7709507bf4a3f8d8907b67d65250b",
+  "validation_rows_checked": 81,
+  "saved_bundle_parity": true,
+  "test_set_used": false
+}

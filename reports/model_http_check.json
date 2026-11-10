@@ -1,0 +1,17 @@
+{
+  "server_url": "http://127.0.0.1:5001",
+  "health_status": 200,
+  "validation_rows_checked": 81,
+  "http_matches_direct_bundle": true,
+  "model_version": "candidate-001",
+  "test_set_used": false,
+  "example_prediction": [
+    {
+      "category": "Software",
+      "category_score": 0.3378455253499939,
+      "priority": "Medium",
+      "priority_score": 0.6136654527302455,
+      "model_version": "candidate-001"
+    }
+  ]
+}

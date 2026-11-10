@@ -1,0 +1,101 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_directory": "artifacts/candidate",
+  "selection_config_sha256": "6a736ce153ce66c7507d5aa3319d258592ff1a0ec9ee75ec00b68ddd74bbbb94",
+  "ray_parent_run_id": "43840ea679884553860e312d9dffea7b",
+  "git_sha": "f8e886af97f616f7d5657981fa192cdf5a9d0077",
+  "git_dirty": true,
+  "input_hashes": {
+    "train": "4c8a12fa64a11769b316f0e15b0b4dd4e4018a63ff5ef125247fcf11b38927f1",
+    "validation": "684b52974cab32bd430bf5809de1753c36017c20793f585972ecb000ad2aca98"
+  },
+  "train_rows": 247,
+  "validation_rows": 81,
+  "test_set_used": false,
+  "versions": {
+    "pandas": "2.3.3",
+    "scikit-learn": "1.9.0"
+  },
+  "models": {
+    "category": {
+      "C": 2.0,
+      "accuracy": 0.7530864197530864,
+      "macro_f1": 0.7297348484848484,
+      "classification_report": {
+        "Account": {
+          "precision": 0.5625,
+          "recall": 0.6428571428571429,
+          "f1-score": 0.6,
+          "support": 14.0
+        },
+        "Network": {
+          "precision": 0.9090909090909091,
+          "recall": 0.7142857142857143,
+          "f1-score": 0.8,
+          "support": 14.0
+        },
+        "Security": {
+          "precision": 1.0,
+          "recall": 0.5714285714285714,
+          "f1-score": 0.7272727272727273,
+          "support": 7.0
+        },
+        "Software": {
+          "precision": 0.76,
+          "recall": 0.8260869565217391,
+          "f1-score": 0.7916666666666666,
+          "support": 46.0
+        },
+        "accuracy": 0.7530864197530864,
+        "macro avg": {
+          "precision": 0.8078977272727272,
+          "recall": 0.6886645962732919,
+          "f1-score": 0.7297348484848484,
+          "support": 81.0
+        },
+        "weighted avg": {
+          "precision": 0.7723737373737374,
+          "recall": 0.7530864197530864,
+          "f1-score": 0.7544145155256267,
+          "support": 81.0
+        }
+      },
+      "artifact_sha256": "8ca7a1e531fcc27b31221e3fa8bfa0cde255cc07a8bdd4d544ae3d81a07ee926",
+      "saved_pipeline_prediction_parity": true
+    },
+    "priority": {
+      "C": 0.5,
+      "accuracy": 0.9012345679012346,
+      "macro_f1": 0.9004914004914004,
+      "classification_report": {
+        "High": {
+          "precision": 0.9166666666666666,
+          "recall": 0.868421052631579,
+          "f1-score": 0.8918918918918919,
+          "support": 38.0
+        },
+        "Medium": {
+          "precision": 0.8888888888888888,
+          "recall": 0.9302325581395349,
+          "f1-score": 0.9090909090909091,
+          "support": 43.0
+        },
+        "accuracy": 0.9012345679012346,
+        "macro avg": {
+          "precision": 0.9027777777777777,
+          "recall": 0.899326805385557,
+          "f1-score": 0.9004914004914004,
+          "support": 81.0
+        },
+        "weighted avg": {
+          "precision": 0.9019204389574759,
+          "recall": 0.9012345679012346,
+          "f1-score": 0.9010222343555677,
+          "support": 81.0
+        }
+      },
+      "artifact_sha256": "0921ec0ddc381cc6f86485168cf8b2c54bd5915e209abd4b640c940fc310a5c7",
+      "saved_pipeline_prediction_parity": true
+    }
+  }
+}

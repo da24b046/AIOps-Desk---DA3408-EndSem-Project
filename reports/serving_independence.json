@@ -1,0 +1,8 @@
+{
+  "tracking_port_closed": true,
+  "inference_health_status": 200,
+  "validation_rows_checked": 81,
+  "http_matches_direct_bundle": true,
+  "model_version": "candidate-001",
+  "test_set_used": false
+}
