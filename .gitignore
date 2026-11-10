@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Local secrets
+.env
+
+# Raw datasets will be versioned with DVC later
+data/raw/
+
+# Prepared datasets
+data/processed/

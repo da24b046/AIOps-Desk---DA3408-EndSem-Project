@@ -1,0 +1,35 @@
+{
+  "input_rows": 500,
+  "retained_rows": 409,
+  "excluded_rows": 91,
+  "exclusion_reasons": {
+    "excluded_category": 88,
+    "excluded_priority": 3
+  },
+  "category_counts": {
+    "Network": 66,
+    "Software": 230,
+    "Account": 71,
+    "Security": 42
+  },
+  "priority_counts": {
+    "Medium": 227,
+    "High": 182
+  },
+  "model_input_fields": [
+    "subject",
+    "description"
+  ],
+  "config": {
+    "categories": [
+      "Software",
+      "Account",
+      "Network",
+      "Security"
+    ],
+    "priorities": [
+      "Medium",
+      "High"
+    ]
+  }
+}

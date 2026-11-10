@@ -1,0 +1,20 @@
+{
+  "dataset": "Console-AI/IT-helpdesk-synthetic-tickets",
+  "source_url": "https://huggingface.co/datasets/Console-AI/IT-helpdesk-synthetic-tickets",
+  "revision": "165693849d955c6da4c00bc8be8e541afec0514e",
+  "download_url": "https://huggingface.co/datasets/Console-AI/IT-helpdesk-synthetic-tickets/resolve/165693849d955c6da4c00bc8be8e541afec0514e/tickets.csv",
+  "retrieved_at": "2026-11-10T13:32:25.031392+00:00",
+  "sha256": "27ffa4446d557278a8e1922b8f639fb9d104c13676c18927793e52e3f45c0151",
+  "bytes": 263690,
+  "rows": 500,
+  "columns": [
+    "id",
+    "subject",
+    "description",
+    "priority",
+    "category",
+    "createdAt",
+    "requesterEmail"
+  ],
+  "license": "mit"
+}
