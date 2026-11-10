@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "checks_passed": 13,
+  "checks": [
+    "API readiness",
+    "Valid request accepted",
+    "Expected model and policy versions",
+    "Team routing follows policy",
+    "Manual-review rules follow policy",
+    "Prediction exists in SQLite",
+    "Stored result matches API response",
+    "Stored email is redacted",
+    "Missing description rejected with 422",
+    "Whitespace-only subject rejected with 422",
+    "Unexpected field rejected with 422",
+    "Combined text exceeds limit rejected with 422",
+    "Invalid requests created no records"
+  ],
+  "verified_prediction_id": "a181416d-373d-402c-95e1-84164a0921bb",
+  "test_set_used": false
+}
