@@ -1,0 +1,7 @@
+{
+  "policy_version": "promotion-001",
+  "required_label_source": "operator_review",
+  "minimum_category_macro_f1_improvement": 0.001,
+  "allow_category_accuracy_regression": false,
+  "automatic_deployment": false
+}

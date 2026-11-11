@@ -1,0 +1,37 @@
+{
+  "release_id": "stable-001",
+  "readiness": {
+    "status": "ready",
+    "model_version": "candidate-001",
+    "policy_version": "policy-001"
+  },
+  "images": {
+    "api": {
+      "tag": "aiopsdesk-api:rollback-001",
+      "image_id": "sha256:fb61a269a2eb4bbe5949bf8abdcdf0f6497a08912c4a4546499b9d9b48623d2f"
+    },
+    "model": {
+      "tag": "aiopsdesk-model:rollback-001",
+      "image_id": "sha256:51bf3ca77cae310d98d73776bb846ae8d86875165fb24193de00596b44b52ced"
+    }
+  },
+  "policy": {
+    "policy_version": "policy-001",
+    "expected_model_version": "candidate-001",
+    "category_to_team": {
+      "Software": "Application Support",
+      "Account": "Identity Support",
+      "Network": "Network Support",
+      "Security": "Security Support"
+    },
+    "priority_labels": [
+      "Medium",
+      "High"
+    ],
+    "review_thresholds": {
+      "category_score": 0.6,
+      "priority_score": 0.6
+    },
+    "max_combined_text_characters": 5000
+  }
+}

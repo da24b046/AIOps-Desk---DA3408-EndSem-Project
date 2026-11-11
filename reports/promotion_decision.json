@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-11T11:24:45.856114+00:00",
+  "policy_version": "promotion-001",
+  "policy_sha256": "92c22587ebd1b0f2f5c083bf2b46da6ba6755c1b072a459d5bcdbef8dc158e2b",
+  "candidate_report_sha256": "9ea9ac14eb3a7bb94ceaa4d2df67a27ab7e76b14b478bdc7e4833437138002ce",
+  "candidate_id": "feedback-demo-001",
+  "category_macro_f1_improvement": 0.0,
+  "checks": {
+    "candidate_artifacts_match_recorded_hashes": true,
+    "original_category_matches_recorded_hash": true,
+    "original_priority_matches_recorded_hash": true,
+    "training_data_matches_recorded_hash": true,
+    "validation_data_matches_recorded_hash": true,
+    "required_feedback_source": false,
+    "minimum_macro_f1_improvement": false,
+    "accuracy_requirement": true,
+    "priority_artifact_unchanged": true,
+    "serialization_verified": true,
+    "test_set_not_used": true
+  },
+  "failed_checks": [
+    "required_feedback_source",
+    "minimum_macro_f1_improvement"
+  ],
+  "eligible_for_promotion": false,
+  "decision": "keep_current_model",
+  "deployment_attempted": false
+}

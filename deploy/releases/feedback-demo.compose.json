@@ -1,0 +1,15 @@
+{
+  "services": {
+    "model": {
+      "image": "aiopsdesk-model:feedback-demo-001",
+      "pull_policy": "never"
+    },
+    "api": {
+      "image": "aiopsdesk-api:rollback-001",
+      "pull_policy": "never",
+      "volumes": [
+        "./deploy/releases/policy-feedback-demo-001.json:/app/configs/policy.json:ro"
+      ]
+    }
+  }
+}

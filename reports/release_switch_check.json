@@ -1,0 +1,45 @@
+{
+  "exercise": {
+    "checked_at": "2026-11-11T11:33:31.649258+00:00",
+    "release_id": "feedback-demo-001",
+    "checks": {
+      "direct_api": {
+        "status": "ready",
+        "model_version": "feedback-demo-001",
+        "policy_version": "policy-demo-001"
+      },
+      "frontend_proxy": {
+        "status": "ready",
+        "model_version": "feedback-demo-001",
+        "policy_version": "policy-demo-001"
+      },
+      "api_image_matches": true,
+      "existing_database_volume_mounted": true,
+      "model_image_matches": true,
+      "policy_matches": true
+    },
+    "passed": true
+  },
+  "rollback": {
+    "checked_at": "2026-11-11T11:34:03.578052+00:00",
+    "release_id": "stable-001",
+    "checks": {
+      "direct_api": {
+        "status": "ready",
+        "model_version": "candidate-001",
+        "policy_version": "policy-001"
+      },
+      "frontend_proxy": {
+        "status": "ready",
+        "model_version": "candidate-001",
+        "policy_version": "policy-001"
+      },
+      "api_image_matches": true,
+      "existing_database_volume_mounted": true,
+      "model_image_matches": true,
+      "policy_matches": true
+    },
+    "passed": true
+  },
+  "switch_and_rollback_verified": true
+}

@@ -1,0 +1,20 @@
+{
+  "release_id": "feedback-demo-001",
+  "exercise_only": true,
+  "quality_decision": "keep_current_model",
+  "model_version": "feedback-demo-001",
+  "policy_version": "policy-demo-001",
+  "images": {
+    "api": {
+      "tag": "aiopsdesk-api:rollback-001",
+      "image_id": "sha256:fb61a269a2eb4bbe5949bf8abdcdf0f6497a08912c4a4546499b9d9b48623d2f"
+    },
+    "model": {
+      "tag": "aiopsdesk-model:feedback-demo-001",
+      "image_id": "sha256:e239d35e987f3116f87f8f1dbcb2e6872fa58e3eb8287324a7279dbb81493a4e"
+    }
+  },
+  "policy_sha256": "91cecd746b14ba3af137550d4699b4319e4d48cfab359b3ef708cba44de4489d",
+  "package_report_sha256": "1cf9ce76cb7033bff37bd8669531c4c2294c96dd18ce36bcad4d40042856fc89",
+  "promotion_decision_sha256": "e5f9eca5702c700e61406e1322934517b52a1d7617a2eab64bc7029dc7665de2"
+}

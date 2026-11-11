@@ -1,0 +1,17 @@
+{
+  "model_version": "feedback-demo-001",
+  "bundle_path": "artifacts/serving/feedback-demo-001",
+  "mlflow_run_id": "923d0b69ec7e4ef1ad0dc95550916b75",
+  "training_report_sha256": "9ea9ac14eb3a7bb94ceaa4d2df67a27ab7e76b14b478bdc7e4833437138002ce",
+  "metadata_sha256": "4f44f00de1418d47e7d1ac352e089b652aada534416df01406b2f1c99f8de4e4",
+  "validation_rows_checked": 81,
+  "category_serving_metrics": {
+    "accuracy": 0.7530864197530864,
+    "macro_f1": 0.7297348484848484
+  },
+  "saved_bundle_parity": true,
+  "exercise_only": true,
+  "promotion_decision": "keep_current_model",
+  "test_set_used": false,
+  "deployment_attempted": false
+}

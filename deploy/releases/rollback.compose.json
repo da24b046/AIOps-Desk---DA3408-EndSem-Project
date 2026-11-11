@@ -1,0 +1,12 @@
+{
+  "services": {
+    "api": {
+      "image": "aiopsdesk-api:rollback-001",
+      "pull_policy": "never"
+    },
+    "model": {
+      "image": "aiopsdesk-model:rollback-001",
+      "pull_policy": "never"
+    }
+  }
+}

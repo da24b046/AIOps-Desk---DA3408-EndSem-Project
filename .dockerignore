@@ -21,3 +21,4 @@ artifacts/serving/*
 # Frontend generated files
 frontend/node_modules/
 frontend/dist/
+!artifacts/serving/feedback-demo-001/

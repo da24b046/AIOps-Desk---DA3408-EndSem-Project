@@ -1,0 +1,13 @@
+{
+  "candidate_id": "feedback-demo-001",
+  "label_source": "synthetic_demo",
+  "exercise_only": true,
+  "models": {
+    "category": {
+      "artifact_sha256": "9e599f45e64a833c032a837fd03e1d9b597f03ac217946b722137f0090dde95a"
+    },
+    "priority": {
+      "artifact_sha256": "0921ec0ddc381cc6f86485168cf8b2c54bd5915e209abd4b640c940fc310a5c7"
+    }
+  }
+}
