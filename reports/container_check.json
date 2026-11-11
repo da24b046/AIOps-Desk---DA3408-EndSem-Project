@@ -1,0 +1,53 @@
+{
+  "api_container_id_before": "176fcc221a9f949d8cb816c8a82d1709eafc94694547fef82acda3b69d392010",
+  "api_image_id": "sha256:4f567181cb9fea5d49e241959cdcd7260fef583618f635c8c529bd8d3c8afd28",
+  "database_volume": "aiopsdesk_app_data",
+  "test_set_used": false,
+  "prediction_id": "d7ab7334-0514-4035-861c-5d18e671693f",
+  "saved_prediction": {
+    "prediction_id": "d7ab7334-0514-4035-861c-5d18e671693f",
+    "owner_username": "operator",
+    "created_at": "2026-11-11T07:22:49.751309+00:00",
+    "model_version": "candidate-001",
+    "policy_version": "policy-001",
+    "redacted_input": {
+      "subject": "Container persistence demonstration",
+      "description": "I cannot sign in to my account. Contact [EMAIL]."
+    },
+    "result": {
+      "category": "Account",
+      "category_score": 0.44628139624196267,
+      "priority": "Medium",
+      "priority_score": 0.5815595665749089,
+      "team": "Identity Support",
+      "needs_review": true,
+      "review_reasons": [
+        "low_category_score",
+        "low_priority_score"
+      ]
+    }
+  },
+  "verified_after_recreation": true,
+  "initial_checks": [
+    "Named application volume mounted",
+    "Containerized API ready",
+    "Existing operator account works",
+    "Containerized prediction accepted",
+    "Saved prediction accessible",
+    "Prediction owner preserved",
+    "Stored email redacted",
+    "Logout accepted"
+  ],
+  "api_container_id_after": "12da22fc01e490cf8b854478a6b488757880a82fed7caa0abcce6ecebb1e5d75",
+  "recreation_checks": [
+    "Named application volume mounted",
+    "API container was recreated",
+    "Containerized API ready",
+    "Existing operator account works",
+    "Saved prediction accessible",
+    "Prediction owner preserved",
+    "Stored email redacted",
+    "Prediction unchanged after recreation",
+    "Logout accepted"
+  ]
+}

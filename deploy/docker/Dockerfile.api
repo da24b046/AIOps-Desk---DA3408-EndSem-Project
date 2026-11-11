@@ -1,0 +1,26 @@
+ARG PYTHON_IMAGE=python:3.14.4-slim
+FROM ${PYTHON_IMAGE}
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+COPY deploy/docker/requirements-api.txt /tmp/requirements-api.txt
+RUN python -m pip install --no-cache-dir -r /tmp/requirements-api.txt
+
+RUN useradd --create-home --uid 10001 app \
+    && mkdir -p /app/state/app \
+    && chown -R app:app /app/state
+
+COPY src/ /app/src/
+COPY configs/ /app/configs/
+
+USER app
+
+EXPOSE 8000
+
+HEALTHCHECK --interval=15s --timeout=5s --start-period=30s --retries=3 \
+    CMD ["python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:8000/health/ready', timeout=4)"]
+
+CMD ["python", "-m", "uvicorn", "src.api:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

@@ -1,0 +1,31 @@
+{
+  "base_image": "python@sha256:2ca02f32b4d9d893863367ce07ec1972819f476dd38d8612f2a9cb6a41cbb727",
+  "images": {
+    "api": {
+      "reference": "aiopsdesk-api:dev",
+      "image_id": "sha256:4f567181cb9fea5d49e241959cdcd7260fef583618f635c8c529bd8d3c8afd28",
+      "created_at": "2026-11-11T12:36:27.97374435+05:30",
+      "architecture": "amd64",
+      "os": "linux",
+      "configured_user": "app"
+    },
+    "model": {
+      "reference": "aiopsdesk-model:candidate-001",
+      "image_id": "sha256:51bf3ca77cae310d98d73776bb846ae8d86875165fb24193de00596b44b52ced",
+      "created_at": "2026-11-11T12:40:00.077624673+05:30",
+      "architecture": "amd64",
+      "os": "linux",
+      "configured_user": "app"
+    }
+  },
+  "configuration_sha256": {
+    ".dockerignore": "b4428057b27a98495c5206a20c29f6f3eef721d3948cc83de0102cba8f83438f",
+    "compose.yaml": "fd9d8713ec889a5a362433894a19ed2b266d1f0cd2219d973bc6693a73d47f23",
+    "deploy/docker/Dockerfile.api": "c93e21da1abdf843b75e39d1d1615202ffefe314543a817ac2181e71f094fd7c",
+    "deploy/docker/Dockerfile.model": "a28cbfc50a363e4970d8726acb7de1a5caecc2e296aa219baf6ced936a0444bf",
+    "deploy/docker/requirements-api.txt": "8a93b65fd6f5fc6dad16c67ee2f743a1f93d246047a518de044457bbd5337fde",
+    "deploy/docker/requirements-model.txt": "85e3dcea66cded65047b1ce4165893d6999eeb2d955a7a651358753690fdacc1",
+    "deploy/docker/requirements-api.lock.txt": "a5da0781e258c2f2eba742e51cda383fd35405561aa7163768f09c41e8394bc9",
+    "deploy/docker/requirements-model.lock.txt": "6d8c4b50ad40e9bd554d910567dfa825fc5ff08d2267b432c92dd3dfa490ec5b"
+  }
+}
