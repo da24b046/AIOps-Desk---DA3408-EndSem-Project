@@ -17,3 +17,7 @@ artifacts/*
 !artifacts/serving/
 artifacts/serving/*
 !artifacts/serving/candidate-001/
+
+# Frontend generated files
+frontend/node_modules/
+frontend/dist/
