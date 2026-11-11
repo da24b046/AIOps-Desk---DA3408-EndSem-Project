@@ -157,7 +157,7 @@ services:
         max-file: "2"
 
   model:
-    image: aiopsdesk-model:candidate-001
+    image: aiopsdesk-model:candidate-001-explained
     pull_policy: never
     init: true
     restart: unless-stopped

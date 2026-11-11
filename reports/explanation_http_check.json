@@ -1,0 +1,7 @@
+{
+  "model_version": "candidate-001",
+  "policy_version": "policy-001",
+  "explanations_available": true,
+  "explanation_classes_match_predictions": true,
+  "saved_history_matches": true
+}

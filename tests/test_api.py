@@ -245,3 +245,76 @@ def test_metrics_exclude_ticket_text_and_identifiers(client):
     assert "demo@example.test" not in metrics
     assert prediction_id not in metrics
     assert private_path not in metrics
+
+
+def explanation_fixture():
+    def detail(predicted, alternative, term):
+        return {
+            "predicted_class": predicted,
+            "alternative_class": alternative,
+            "top_terms": [{
+                "term": term,
+                "contribution": 1.0,
+                "direction": "supports_prediction",
+            }],
+            "intercept_contribution": 0.2,
+            "remaining_terms_contribution": 0.0,
+            "decision_margin": 1.2,
+            "margin_reconstruction_verified": True,
+            "note": "Learned association, not causal diagnosis.",
+        }
+
+    return {
+        "status": "available",
+        "category": detail("Software", "Account", "application"),
+        "priority": detail("Medium", "High", "access"),
+    }
+
+
+def test_legacy_model_without_explanation_still_predicts(client):
+    response = client.post(
+        "/v1/predict", json=TICKET, headers=login(client, "operator")
+    )
+    assert response.status_code == 200
+    assert response.json()["result"]["explanation"]["status"] == "unavailable"
+
+
+def test_valid_explanation_is_returned_and_saved(client, monkeypatch):
+    prediction = model_result().model_copy(update={
+        "explanation_json": json.dumps(explanation_fixture()),
+    })
+    monkeypatch.setattr(api, "call_model", lambda ticket: prediction)
+    token = login(client, "operator")
+    response = client.post("/v1/predict", json=TICKET, headers=token)
+
+    assert response.status_code == 200
+    body = response.json()
+    assert body["result"]["explanation"]["status"] == "available"
+    assert "explanation_json" not in body["result"]
+
+    saved = client.get(
+        f"/v1/predictions/{body['prediction_id']}", headers=token
+    ).json()
+    assert saved["result"]["explanation"] == body["result"]["explanation"]
+
+
+@pytest.mark.parametrize("fault", ["invalid_json", "wrong_class"])
+def test_invalid_explanation_does_not_discard_valid_prediction(
+    client, monkeypatch, fault
+):
+    if fault == "invalid_json":
+        raw = "not valid JSON"
+    else:
+        payload = explanation_fixture()
+        payload["category"]["predicted_class"] = "Network"
+        raw = json.dumps(payload)
+
+    prediction = model_result().model_copy(update={"explanation_json": raw})
+    monkeypatch.setattr(api, "call_model", lambda ticket: prediction)
+
+    response = client.post(
+        "/v1/predict", json=TICKET, headers=login(client, "operator")
+    )
+    assert response.status_code == 200
+    assert response.json()["result"]["category"] == "Software"
+    assert response.json()["result"]["explanation"]["status"] == "unavailable"

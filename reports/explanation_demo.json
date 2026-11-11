@@ -1,0 +1,80 @@
+{
+  "model_version": "candidate-001",
+  "example_source": "manual_wifi_demonstration",
+  "explanations": {
+    "category": {
+      "predicted_class": "Software",
+      "alternative_class": "Account",
+      "top_terms": [
+        {
+          "term": "can",
+          "contribution": -0.11664164355835603,
+          "direction": "supports_alternative"
+        },
+        {
+          "term": "connect",
+          "contribution": -0.10974315518586822,
+          "direction": "supports_alternative"
+        },
+        {
+          "term": "office",
+          "contribution": 0.1092662334037167,
+          "direction": "supports_prediction"
+        },
+        {
+          "term": "my",
+          "contribution": -0.07425402313291708,
+          "direction": "supports_alternative"
+        },
+        {
+          "term": "to",
+          "contribution": 0.05644311190079267,
+          "direction": "supports_prediction"
+        }
+      ],
+      "intercept_contribution": 0.39567131093697644,
+      "remaining_terms_contribution": -0.08089968888311944,
+      "decision_margin": 0.17984214548122496,
+      "margin_reconstruction_verified": true,
+      "note": "Learned text associations, not causal diagnosis. Contributions are decision-score units, not probabilities."
+    },
+    "priority": {
+      "predicted_class": "Medium",
+      "alternative_class": "High",
+      "top_terms": [
+        {
+          "term": "connect",
+          "contribution": 0.06039084476631601,
+          "direction": "supports_prediction"
+        },
+        {
+          "term": "laptop",
+          "contribution": 0.035806973282745784,
+          "direction": "supports_prediction"
+        },
+        {
+          "term": "to the",
+          "contribution": 0.035062195289584305,
+          "direction": "supports_prediction"
+        },
+        {
+          "term": "my",
+          "contribution": 0.027276122231057298,
+          "direction": "supports_prediction"
+        },
+        {
+          "term": "office",
+          "contribution": 0.024795988825829448,
+          "direction": "supports_prediction"
+        }
+      ],
+      "intercept_contribution": 0.22360819556864853,
+      "remaining_terms_contribution": 0.055805897563514506,
+      "decision_margin": 0.46274621752769585,
+      "margin_reconstruction_verified": true,
+      "note": "Learned text associations, not causal diagnosis. Contributions are decision-score units, not probabilities."
+    }
+  },
+  "model_changed": false,
+  "test_set_used": false
+}

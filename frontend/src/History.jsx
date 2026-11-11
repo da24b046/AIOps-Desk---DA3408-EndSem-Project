@@ -1,3 +1,4 @@
+import PredictionExplanation from './PredictionExplanation'
 import { useEffect, useRef, useState } from 'react'
 import { apiRequest } from './api'
 import FeedbackForm from './FeedbackForm'
@@ -145,6 +146,7 @@ export default function History({ token, user, onSessionExpired }) {
               </div>
             </dl>
 
+            <PredictionExplanation explanation={selected.result.explanation} />
             <details>
               <summary>Saved prediction details</summary>
               <dl className="details">

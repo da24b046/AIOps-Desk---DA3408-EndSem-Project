@@ -1,0 +1,14 @@
+{
+  "model_version": "candidate-001",
+  "validation_rows_checked": 81,
+  "validation_sha256": "684b52974cab32bd430bf5809de1753c36017c20793f585972ecb000ad2aca98",
+  "explanations_checked": {
+    "category": 81,
+    "priority": 81
+  },
+  "all_predicted_classes_match": true,
+  "all_margins_reconstructed": true,
+  "explanation_code_sha256": "c8d88f4bf19a6adb3d8d27a9260a4f5727d763fa900fefcb3ec1a49d744c1ffc",
+  "test_set_used": false,
+  "model_changed": false
+}

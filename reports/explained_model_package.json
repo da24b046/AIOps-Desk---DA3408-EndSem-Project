@@ -1,0 +1,16 @@
+{
+  "model_version": "candidate-001",
+  "bundle_version": "explanations-001",
+  "bundle_path": "artifacts/serving/candidate-001-explained",
+  "validation_rows_checked": 81,
+  "prediction_and_score_parity": true,
+  "saved_bundle_parity": true,
+  "all_explanations_available": true,
+  "fitted_artifact_hashes": {
+    "category": "8ca7a1e531fcc27b31221e3fa8bfa0cde255cc07a8bdd4d544ae3d81a07ee926",
+    "priority": "0921ec0ddc381cc6f86485168cf8b2c54bd5915e209abd4b640c940fc310a5c7"
+  },
+  "explanation_code_sha256": "c8d88f4bf19a6adb3d8d27a9260a4f5727d763fa900fefcb3ec1a49d744c1ffc",
+  "test_set_used": false,
+  "retrained": false
+}

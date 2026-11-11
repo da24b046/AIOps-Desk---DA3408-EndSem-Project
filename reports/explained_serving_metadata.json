@@ -1,0 +1,12 @@
+{
+  "candidate_id": "candidate-001",
+  "bundle_version": "explanations-001",
+  "models": {
+    "category": {
+      "artifact_sha256": "8ca7a1e531fcc27b31221e3fa8bfa0cde255cc07a8bdd4d544ae3d81a07ee926"
+    },
+    "priority": {
+      "artifact_sha256": "0921ec0ddc381cc6f86485168cf8b2c54bd5915e209abd4b640c940fc310a5c7"
+    }
+  }
+}

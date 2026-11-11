@@ -13,6 +13,8 @@ import httpx
 from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from src.explanation_schema import PredictionExplanation, parse_explanation
+
 from src.metrics import (
     CATEGORY_SCORE, DB_WRITE_FAILURES, PREDICTIONS, PRIORITY_SCORE,
     instrument_model_call, install_metrics,
@@ -60,6 +62,7 @@ class ModelOutput(BaseModel):
     priority: str
     priority_score: float = Field(ge=0, le=1, allow_inf_nan=False)
     model_version: str
+    explanation_json: str | None = None
 
 
 class PredictionResult(BaseModel):
@@ -72,6 +75,7 @@ class PredictionResult(BaseModel):
     team: str
     needs_review: bool
     review_reasons: list[str]
+    explanation: PredictionExplanation | None = None
 
 
 class PredictionResponse(BaseModel):
@@ -216,8 +220,11 @@ def predict(ticket: TicketInput, user: dict = Depends(current_user)):
         if getattr(prediction, field) < threshold:
             reasons.append(f"low_{field}")
 
-    result = prediction.model_dump(exclude={"model_version"})
+    result = prediction.model_dump(exclude={"model_version", "explanation_json"})
     result.update({
+        "explanation": parse_explanation(
+            prediction.explanation_json, prediction, POLICY
+        ),
         "team": POLICY["category_to_team"][prediction.category],
         "needs_review": bool(reasons),
         "review_reasons": reasons,

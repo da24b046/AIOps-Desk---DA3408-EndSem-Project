@@ -1,0 +1,16 @@
+{
+  "services": {
+    "api": {
+      "image": "aiopsdesk-api:pre-explanation-998bb031e8cc",
+      "pull_policy": "never"
+    },
+    "model": {
+      "image": "aiopsdesk-model:pre-explanation-51bf3ca77cae",
+      "pull_policy": "never"
+    },
+    "frontend": {
+      "image": "aiopsdesk-frontend:pre-explanation-8a1b477731db",
+      "pull_policy": "never"
+    }
+  }
+}

@@ -1171,6 +1171,65 @@
         ],
         "title": "JobInput"
       },
+      "LinearExplanation": {
+        "properties": {
+          "predicted_class": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Predicted Class"
+          },
+          "alternative_class": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "title": "Alternative Class"
+          },
+          "top_terms": {
+            "items": {
+              "$ref": "#/components/schemas/TermContribution"
+            },
+            "type": "array",
+            "maxItems": 5,
+            "title": "Top Terms"
+          },
+          "intercept_contribution": {
+            "type": "number",
+            "title": "Intercept Contribution"
+          },
+          "remaining_terms_contribution": {
+            "type": "number",
+            "title": "Remaining Terms Contribution"
+          },
+          "decision_margin": {
+            "type": "number",
+            "minimum": 0.0,
+            "title": "Decision Margin"
+          },
+          "margin_reconstruction_verified": {
+            "type": "boolean",
+            "title": "Margin Reconstruction Verified"
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 300,
+            "title": "Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "predicted_class",
+          "alternative_class",
+          "top_terms",
+          "intercept_contribution",
+          "remaining_terms_contribution",
+          "decision_margin",
+          "margin_reconstruction_verified",
+          "note"
+        ],
+        "title": "LinearExplanation"
+      },
       "LoginInput": {
         "properties": {
           "username": {
@@ -1194,6 +1253,44 @@
           "password"
         ],
         "title": "LoginInput"
+      },
+      "PredictionExplanation": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "available",
+              "unavailable"
+            ],
+            "title": "Status"
+          },
+          "category": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LinearExplanation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "priority": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LinearExplanation"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "PredictionExplanation"
       },
       "PredictionResponse": {
         "properties": {
@@ -1272,6 +1369,16 @@
             },
             "type": "array",
             "title": "Review Reasons"
+          },
+          "explanation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PredictionExplanation"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "additionalProperties": false,
@@ -1374,6 +1481,36 @@
           "stage_id"
         ],
         "title": "StageStart"
+      },
+      "TermContribution": {
+        "properties": {
+          "term": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Term"
+          },
+          "contribution": {
+            "type": "number",
+            "title": "Contribution"
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "supports_prediction",
+              "supports_alternative"
+            ],
+            "title": "Direction"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "term",
+          "contribution",
+          "direction"
+        ],
+        "title": "TermContribution"
       },
       "TicketInput": {
         "properties": {

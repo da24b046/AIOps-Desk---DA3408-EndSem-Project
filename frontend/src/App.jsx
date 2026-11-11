@@ -1,3 +1,4 @@
+import PredictionExplanation from './PredictionExplanation'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { apiRequest } from './api'
 import History from './History'
@@ -262,6 +263,7 @@ export default function App() {
                       ))}
                     </ul>
                   )}
+                  <PredictionExplanation explanation={result.result.explanation} />
                   <details>
                     <summary>Prediction details</summary>
                     <dl className="details">
