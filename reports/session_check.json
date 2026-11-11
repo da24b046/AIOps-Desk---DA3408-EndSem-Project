@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "checks_passed": 17,
+  "checks": [
+    "Missing token rejected",
+    "Invalid token rejected",
+    "viewer: login accepted",
+    "viewer: correct identity returned",
+    "viewer: authenticated session works",
+    "viewer: logout accepted",
+    "viewer: logged-out token rejected",
+    "operator: login accepted",
+    "operator: correct identity returned",
+    "operator: authenticated session works",
+    "operator: logout accepted",
+    "operator: logged-out token rejected",
+    "maintainer: login accepted",
+    "maintainer: correct identity returned",
+    "maintainer: authenticated session works",
+    "maintainer: logout accepted",
+    "maintainer: logged-out token rejected"
+  ]
+}

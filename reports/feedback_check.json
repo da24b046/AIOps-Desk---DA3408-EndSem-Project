@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "checks_passed": 16,
+  "checks": [
+    "viewer: login",
+    "operator: login",
+    "maintainer: login",
+    "Unauthenticated feedback rejected",
+    "Viewer feedback rejected",
+    "Operator feedback accepted",
+    "Feedback recorded as pending with correct author",
+    "Original prediction unchanged",
+    "Viewer feedback history rejected",
+    "Operator sees own submitted feedback",
+    "Maintainer can see pending feedback",
+    "Unsupported category rejected",
+    "Unknown prediction rejected",
+    "viewer: logout",
+    "operator: logout",
+    "maintainer: logout"
+  ],
+  "feedback_id": "0f35295d-47f4-4680-b5ed-6dfea3d63024",
+  "prediction_id": "746b8856-d35d-422d-8a0f-0951a25fb581",
+  "label_source": "synthetic_demo"
+}

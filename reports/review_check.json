@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "checks_passed": 22,
+  "checks": [
+    "viewer: login",
+    "operator: login",
+    "maintainer: login",
+    "Created approve fixture",
+    "Created reject fixture",
+    "Created self_review fixture",
+    "Unauthenticated review rejected",
+    "viewer: review forbidden",
+    "operator: review forbidden",
+    "Maintainer approval accepted",
+    "Approval records reviewer and timestamp",
+    "Author can inspect saved review",
+    "Second decision rejected",
+    "Original review preserved",
+    "Maintainer rejection accepted",
+    "Self-review forbidden",
+    "Feedback statuses reflect decisions",
+    "Proposed labels and author preserved",
+    "Original prediction unchanged",
+    "viewer: logout",
+    "operator: logout",
+    "maintainer: logout"
+  ],
+  "approved_feedback_id": "082de18f-4637-45c2-8495-13c6bf07db78",
+  "rejected_feedback_id": "35620dbe-72be-4345-b8cf-f9bcfc77b1cc",
+  "self_review_feedback_id": "db7288ea-f331-4cc5-b228-5e8cdeb9b086",
+  "label_source": "synthetic_demo"
+}

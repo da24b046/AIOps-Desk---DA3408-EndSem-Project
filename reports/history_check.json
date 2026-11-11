@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "checks_passed": 19,
+  "checks": [
+    "viewer: login",
+    "operator: login",
+    "maintainer: login",
+    "viewer: demonstration prediction",
+    "viewer: demonstration prediction",
+    "operator: demonstration prediction",
+    "Unauthenticated history rejected",
+    "Viewer history contains only own records",
+    "Viewer can inspect own prediction",
+    "Viewer cannot inspect operator prediction",
+    "Operator can inspect viewer prediction",
+    "Maintainer can inspect operator prediction",
+    "Page limit respected",
+    "Next cursor supplied",
+    "Next page returns a different owned record",
+    "Oversized history limit rejected",
+    "viewer: logout",
+    "operator: logout",
+    "maintainer: logout"
+  ],
+  "demonstration_prediction_ids": {
+    "viewer": [
+      "03ab3098-1326-40c0-b881-5378bce25705",
+      "02b952a7-aa16-433a-953f-5943d513ecef"
+    ],
+    "operator": [
+      "746b8856-d35d-422d-8a0f-0951a25fb581"
+    ]
+  },
+  "test_set_used": false
+}

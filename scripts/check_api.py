@@ -3,6 +3,7 @@
 import json
 import sqlite3
 from contextlib import closing
+from getpass import getpass
 from pathlib import Path
 
 import httpx
@@ -32,6 +33,23 @@ def main():
     )
 
     with httpx.Client(base_url=BASE_URL, timeout=10, trust_env=False) as client:
+        response = client.post(
+            "/v1/predict",
+            json={"subject": "Help", "description": "Cannot sign in."},
+        )
+        check("Unauthenticated prediction rejected", response.status_code == 401)
+
+        password = getpass("Operator password: ")
+        response = client.post(
+            "/v1/session",
+            json={"username": "operator", "password": password},
+        )
+        del password
+        check("Operator login accepted", response.status_code == 200)
+        client.headers["Authorization"] = (
+            "Bearer " + response.json()["access_token"]
+        )
+
         response = client.get("/health/ready")
         check("API readiness", response.status_code == 200)
 
@@ -71,7 +89,7 @@ def main():
             stored = database.execute(
                 """
                 SELECT redacted_input_json, result_json,
-                       model_version, policy_version, created_at
+                       model_version, policy_version, created_at, owner_username
                 FROM predictions WHERE prediction_id = ?
                 """,
                 (body["prediction_id"],),
@@ -85,6 +103,7 @@ def main():
             and stored[3] == body["policy_version"]
             and stored[4] == body["created_at"],
         )
+        check("Prediction owner recorded", stored[5] == "operator")
         stored_input = json.loads(stored[0])
         check(
             "Stored email is redacted",
@@ -117,6 +136,14 @@ def main():
             check(name + " rejected with 422", response.status_code == 422)
 
         check("Invalid requests created no records", row_count() == before)
+
+        response = client.delete("/v1/session")
+        check("Operator logout accepted", response.status_code == 204)
+        response = client.post("/v1/predict", json=payload)
+        check(
+            "Logged-out prediction rejected",
+            response.status_code == 401,
+        )
 
     report = {
         "status": "passed",

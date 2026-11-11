@@ -1,0 +1,19 @@
+{
+  "accounts": [
+    {
+      "username": "viewer",
+      "role": "viewer",
+      "argon2_hash_present": true
+    },
+    {
+      "username": "operator",
+      "role": "operator",
+      "argon2_hash_present": true
+    },
+    {
+      "username": "maintainer",
+      "role": "maintainer",
+      "argon2_hash_present": true
+    }
+  ]
+}

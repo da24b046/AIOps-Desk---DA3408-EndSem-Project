@@ -10,8 +10,13 @@ from pathlib import Path
 from uuid import uuid4
 
 import httpx
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel, ConfigDict, Field, model_validator
+
+from src.sessions import current_user, initialize_sessions, router as session_router
+from src.history import router as history_router
+from src.feedback import initialize_feedback, router as feedback_router
+from src.reviews import initialize_reviews, router as review_router
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = json.loads(
@@ -90,8 +95,18 @@ async def lifespan(app):
                 result_json TEXT NOT NULL
             )
         """)
+        columns = {
+            row[1] for row in database.execute("PRAGMA table_info(predictions)")
+        }
+        if "owner_username" not in columns:
+            database.execute(
+                "ALTER TABLE predictions ADD COLUMN owner_username TEXT"
+            )
         database.commit()
 
+    initialize_sessions()
+    initialize_feedback()
+    initialize_reviews()
     yield
 
 
@@ -181,7 +196,7 @@ def model_info():
 
 
 @app.post("/v1/predict", response_model=PredictionResponse)
-def predict(ticket: TicketInput):
+def predict(ticket: TicketInput, user: dict = Depends(current_user)):
     prediction = call_model(ticket)
     reasons = []
 
@@ -206,7 +221,10 @@ def predict(ticket: TicketInput):
         with closing(connect_database()) as database:
             with database:
                 database.execute(
-                    "INSERT INTO predictions VALUES (?, ?, ?, ?, ?, ?)",
+                    "INSERT INTO predictions "
+                    "(prediction_id, created_at, model_version, policy_version, "
+                    "redacted_input_json, result_json, owner_username) "
+                    "VALUES (?, ?, ?, ?, ?, ?, ?)",
                     (
                         prediction_id,
                         created_at,
@@ -214,6 +232,7 @@ def predict(ticket: TicketInput):
                         POLICY["policy_version"],
                         json.dumps(redacted_input),
                         json.dumps(result),
+                        user["username"],
                     ),
                 )
     except sqlite3.Error:
@@ -227,3 +246,12 @@ def predict(ticket: TicketInput):
         "created_at": created_at,
         "warnings": reasons,
     }
+
+
+app.include_router(session_router)
+
+app.include_router(history_router)
+
+app.include_router(feedback_router)
+
+app.include_router(review_router)
