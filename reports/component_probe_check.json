@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-11-11T10:53:45.223952+00:00",
+  "query": "probe_success{job=\"aiopsdesk-http-probes\"}",
+  "probe_success": {
+    "grafana": 1.0,
+    "frontend": 1.0,
+    "model": 1.0,
+    "api": 1.0
+  },
+  "all_passed": true
+}

@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: AIOpsDesk
+    orgId: 1
+    folder: AIOpsDesk
+    type: file
+    disableDeletion: true
+    editable: false
+    updateIntervalSeconds: 10
+    options:
+      path: /var/lib/grafana/dashboards

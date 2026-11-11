@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-11T10:09:49.019325+00:00",
+  "prometheus_url": "http://127.0.0.1:9090",
+  "targets": {
+    "aiopsdesk-api": 1.0,
+    "prometheus": 1.0
+  },
+  "application_metric_available": true,
+  "configured_release_labels": {
+    "__name__": "aiopsdesk_expected_release_info",
+    "instance": "api:8000",
+    "job": "aiopsdesk-api",
+    "model_version": "candidate-001",
+    "policy_version": "policy-001"
+  }
+}

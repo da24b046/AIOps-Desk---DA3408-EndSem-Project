@@ -13,6 +13,11 @@ import httpx
 from fastapi import Depends, FastAPI, HTTPException
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from src.metrics import (
+    CATEGORY_SCORE, DB_WRITE_FAILURES, PREDICTIONS, PRIORITY_SCORE,
+    instrument_model_call, install_metrics,
+)
+
 from src.sessions import current_user, initialize_sessions, router as session_router
 from src.history import router as history_router
 from src.feedback import initialize_feedback, router as feedback_router
@@ -117,6 +122,7 @@ app = FastAPI(
 )
 
 
+@instrument_model_call
 def call_model(ticket):
     try:
         with httpx.Client(timeout=3, trust_env=False) as client:
@@ -236,7 +242,16 @@ def predict(ticket: TicketInput, user: dict = Depends(current_user)):
                     ),
                 )
     except sqlite3.Error:
+        DB_WRITE_FAILURES.inc()
         raise HTTPException(503, "Could not save the prediction.") from None
+
+    PREDICTIONS.labels(
+        category=prediction.category,
+        priority=prediction.priority,
+        needs_review=str(result["needs_review"]).lower(),
+    ).inc()
+    CATEGORY_SCORE.observe(prediction.category_score)
+    PRIORITY_SCORE.observe(prediction.priority_score)
 
     return {
         "prediction_id": prediction_id,
@@ -255,3 +270,9 @@ app.include_router(history_router)
 app.include_router(feedback_router)
 
 app.include_router(review_router)
+
+install_metrics(
+    app,
+    model_version=POLICY["expected_model_version"],
+    policy_version=POLICY["policy_version"],
+)

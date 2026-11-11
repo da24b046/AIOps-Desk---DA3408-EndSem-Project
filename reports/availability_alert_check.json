@@ -1,0 +1,24 @@
+{
+  "failure_checked_at": "2026-11-11T10:58:17.989899+00:00",
+  "stopped_service": "frontend",
+  "firing_alert": {
+    "labels": {
+      "alertname": "AIOpsDeskServiceUnavailable",
+      "instance": "http://frontend:8080/health/live",
+      "job": "aiopsdesk-http-probes",
+      "service": "frontend",
+      "severity": "warning"
+    },
+    "annotations": {
+      "description": "The HTTP probe failed or could not be collected for at least 30 seconds. Check the service and Blackbox Exporter.",
+      "summary": "frontend availability check failed"
+    },
+    "state": "firing",
+    "activeAt": "2026-11-11T10:57:09.703256738Z",
+    "value": "0e+00"
+  },
+  "recovery_verified": true,
+  "recovery_checked_at": "2026-11-11T10:58:40.840953+00:00",
+  "recovered_probe_success": 1,
+  "frontend_alert_cleared": true
+}

@@ -224,3 +224,24 @@ def test_failed_database_write_does_not_return_success(client, monkeypatch):
     response = client.post("/v1/predict", json=TICKET, headers=operator)
     assert response.status_code == 503
     assert "prediction_id" not in response.json()
+
+
+def test_metrics_exclude_ticket_text_and_identifiers(client):
+    headers = login(client, "operator")
+    response = client.post("/v1/predict", json=TICKET, headers=headers)
+    assert response.status_code == 200
+    prediction_id = response.json()["prediction_id"]
+
+    private_path = "/unknown-private-ticket-123"
+    assert client.get(private_path).status_code == 404
+
+    response = client.get("/metrics")
+    assert response.status_code == 200
+    metrics = response.text
+
+    assert "aiopsdesk_http_requests_total" in metrics
+    assert "aiopsdesk_predictions_total" in metrics
+    assert TICKET["subject"] not in metrics
+    assert "demo@example.test" not in metrics
+    assert prediction_id not in metrics
+    assert private_path not in metrics
