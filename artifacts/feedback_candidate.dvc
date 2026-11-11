@@ -1,0 +1,6 @@
+outs:
+- md5: 142d51cb33ca1bcdd452c45c2e5329d6.dir
+  size: 338979
+  nfiles: 2
+  hash: md5
+  path: feedback_candidate

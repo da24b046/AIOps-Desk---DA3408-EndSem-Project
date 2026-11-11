@@ -1,6 +1,8 @@
 {
   "snapshot_directory": "data/feedback/synthetic_demo-a5e9b6e963190a10",
-  "reused": false,
+  "database_source": "explicit_sqlite_backup",
+  "database_backup_sha256": "62d0369a16680c42ad91ce8dfb8a721c6d26ac4ecea6c6b760778e6abcd434ae",
+  "reused": true,
   "manifest": {
     "schema_version": 1,
     "snapshot_id": "synthetic_demo-a5e9b6e963190a10",

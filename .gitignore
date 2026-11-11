@@ -27,3 +27,4 @@ artifacts/spark-*/
 # Test cache
 .pytest_cache/
 /state/drift/
+/state/feedback_export/

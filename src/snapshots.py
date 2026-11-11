@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import shutil
+import sqlite3
 import tempfile
 from collections import Counter
 from contextlib import closing
@@ -15,13 +16,24 @@ from src.feedback import connect
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def export_snapshot(label_source, created_by):
+def export_snapshot(label_source, created_by, *, database_path=None):
     if label_source not in ("operator_review", "synthetic_demo"):
         raise ValueError("Unsupported label source.")
 
     cutoff = datetime.now(timezone.utc).isoformat()
 
-    with closing(connect()) as database:
+    if database_path is None:
+        connection = connect()
+    else:
+        selected_database = Path(database_path).resolve(strict=True)
+        connection = sqlite3.connect(
+            selected_database.as_uri() + "?mode=ro",
+            uri=True,
+            timeout=3,
+        )
+        connection.row_factory = sqlite3.Row
+
+    with closing(connection) as database:
         database.execute("BEGIN")
         events = database.execute(
             """

@@ -1,0 +1,16 @@
+{
+  "snapshot_id": "synthetic_demo-a5e9b6e963190a10",
+  "rows_sha256": "a5e9b6e963190a10544ee456105e52641ac7d92ff58b8d41892325eee2b14bed",
+  "checksum_verified": true,
+  "label_counts": {
+    "category": {
+      "Network": 1
+    },
+    "priority": {}
+  },
+  "heldout_text_overlap_check": "exact combined text or description Jaccard >= 0.85",
+  "heldout_overlaps": [],
+  "eligible_for_demo_training": true,
+  "heldout_labels_used": false,
+  "test_predictions_evaluated": false
+}

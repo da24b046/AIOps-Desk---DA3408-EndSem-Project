@@ -1,0 +1,37 @@
+{
+  "candidate_id": "feedback-demo-001",
+  "artifact_directory": "artifacts/feedback_candidate",
+  "purpose": "synthetic_feedback_retraining_demonstration",
+  "snapshot_id": "synthetic_demo-a5e9b6e963190a10",
+  "snapshot_rows_sha256": "a5e9b6e963190a10544ee456105e52641ac7d92ff58b8d41892325eee2b14bed",
+  "label_source": "synthetic_demo",
+  "git_sha": "5a9d752b9551855745f45a1da292dda8dfb09e58",
+  "git_dirty": true,
+  "input_hashes": {
+    "train": "4c8a12fa64a11769b316f0e15b0b4dd4e4018a63ff5ef125247fcf11b38927f1",
+    "validation": "684b52974cab32bd430bf5809de1753c36017c20793f585972ecb000ad2aca98",
+    "original_category": "8ca7a1e531fcc27b31221e3fa8bfa0cde255cc07a8bdd4d544ae3d81a07ee926",
+    "original_priority": "0921ec0ddc381cc6f86485168cf8b2c54bd5915e209abd4b640c940fc310a5c7"
+  },
+  "category_training_rows": 248,
+  "approved_category_rows_added": 1,
+  "priority_retrained": false,
+  "priority_artifact_unchanged": true,
+  "validation_rows": 81,
+  "category_validation_before": {
+    "accuracy": 0.7530864197530864,
+    "macro_f1": 0.7297348484848484
+  },
+  "category_validation_after": {
+    "accuracy": 0.7530864197530864,
+    "macro_f1": 0.7297348484848484
+  },
+  "category_macro_f1_change": 0.0,
+  "artifact_hashes": {
+    "category": "9e599f45e64a833c032a837fd03e1d9b597f03ac217946b722137f0090dde95a",
+    "priority": "0921ec0ddc381cc6f86485168cf8b2c54bd5915e209abd4b640c940fc310a5c7"
+  },
+  "saved_pipeline_prediction_parity": true,
+  "test_set_used": false,
+  "deployment_attempted": false
+}
