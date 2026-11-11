@@ -2,11 +2,11 @@
 
 REST interfaces, data contracts and execution states
 
-Evidence snapshot: 2026-11-11. Source checkout: 280ba66edbba; uncommitted changes at generation: True.
+Reviewed for submission using the recorded 2026-11-11 measurements and completed handover checks. Evidence paths and scope are consolidated in the root report.md; document hashes are recorded in reports/documentation_check.json.
 
 ## 1. Interface source of truth
 
-The endpoint inventory below is generated from docs/openapi.json captured from the running API. Interactive documentation is at http://127.0.0.1:8000/docs. The public error body uses FastAPI's actual detail field (a message or validation-error list); the blueprint's proposed request_id/error envelope was not implemented.
+The endpoint inventory below is generated from the FastAPI schema captured during implementation. Interactive documentation is at http://127.0.0.1:8000/docs. The public error body uses FastAPI's actual detail field (a message or validation-error list); the blueprint's proposed request_id/error envelope was not implemented.
 
 The browser calls only its configurable API_BASE_URL, normally /api. Nginx strips that prefix and forwards requests to api:8000. The API makes private model calls to http://model:5001/invocations. The browser never loads classifier files.
 
@@ -107,4 +107,4 @@ Unexpected process termination or prolonged API communication loss can retain an
 
 ## 9. Source map
 
-src/api.py orchestrates prediction; auth.py and sessions.py implement identity; history.py, feedback.py and reviews.py implement audit workflows; snapshots.py exports approved labels; pipeline_jobs.py and pipeline_worker_api.py manage jobs; scripts/pipeline_worker.py executes them; linear_explanations.py and explanation_schema.py implement explainability. Frontend components consume these REST contracts. docs/openapi.json provides full schemas and required fields.
+src/api.py orchestrates prediction; auth.py and sessions.py implement identity; history.py, feedback.py and reviews.py implement audit workflows; snapshots.py exports approved labels; pipeline_jobs.py and pipeline_worker_api.py manage jobs; scripts/pipeline_worker.py executes them; linear_explanations.py and explanation_schema.py implement explainability. Frontend components consume these REST contracts. The running API exposes full schemas and required fields at /openapi.json and /docs.

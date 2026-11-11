@@ -1,0 +1,178 @@
+{
+  "checked_at": "2026-11-11T19:42:59.081117+00:00",
+  "base_commit": "250bb8caab578c61eae3d86600c4b19e160df408",
+  "scope": "Submission working tree; no new experiment training/evaluation/deployment",
+  "status": "passed",
+  "git_push_content_ready": true,
+  "all_blueprint_requirements_completed": false,
+  "folders": {
+    ".dvc": {
+      "decision": "Retain DVC ownership/configuration; installed cache and config.local excluded. Bundled distribution copy retained separately under reproducibility/.",
+      "prospective_git_files": 2
+    },
+    "artifacts": {
+      "decision": "Retain DVC pointers and restored objects; object binaries excluded from Git.",
+      "prospective_git_files": 6
+    },
+    "configs": {
+      "decision": "Retain model/data/review/drift/promotion/job policies for reproducibility.",
+      "prospective_git_files": 9
+    },
+    "data": {
+      "decision": "Retain provenance and DVC pointers; restored datasets excluded from Git.",
+      "prospective_git_files": 6
+    },
+    "deploy": {
+      "decision": "Retain Docker image pins, runtime locks, release/rollback and KServe configurations.",
+      "prospective_git_files": 26
+    },
+    "docs": {
+      "decision": "Retain exactly five required PDFs and five matching Markdown sources.",
+      "prospective_git_files": 10
+    },
+    "evidence": {
+      "decision": "Retain all supplied screenshots and distinct CI/worker/KServe records.",
+      "prospective_git_files": 80
+    },
+    "frontend": {
+      "decision": "Retain source/configuration/lockfile; installed dependencies ignored and build output removed.",
+      "prospective_git_files": 18
+    },
+    "monitoring": {
+      "decision": "Retain exporters, scrape/alert configs and provisioned Grafana assets.",
+      "prospective_git_files": 7
+    },
+    "reports": {
+      "decision": "Retain compact measured component/lifecycle outcomes and fresh submission audit/tests.",
+      "prospective_git_files": 59
+    },
+    "scripts": {
+      "decision": "Retain reproducible experiment, serving, verification and documentation commands.",
+      "prospective_git_files": 45
+    },
+    "src": {
+      "decision": "Retain application implementation; generated Python caches removed.",
+      "prospective_git_files": 13
+    },
+    "tests": {
+      "decision": "Retain all 41 existing cases; generated caches removed.",
+      "prospective_git_files": 3
+    },
+    "state": {
+      "decision": "Live local databases/tracking/application state preserved and excluded from Git.",
+      "prospective_git_files": 0
+    },
+    ".git": {
+      "decision": "Real Git history retained; this directory is not source-upload content.",
+      "prospective_git_files": 0
+    },
+    "reproducibility": {
+      "decision": "Retain the small checksum-verified DVC distribution archive for repo-link-only restoration.",
+      "prospective_git_files": 1
+    }
+  },
+  "root_submission_files": [
+    ".dockerignore",
+    ".dvcignore",
+    ".gitattributes",
+    ".gitignore",
+    "MLproject",
+    "README.md",
+    "compose.yaml",
+    "dvc.lock",
+    "dvc.yaml",
+    "report.md",
+    "report.pdf",
+    "requirements.txt"
+  ],
+  "tracked_files_removed_in_cleanup": [
+    "docs/data-card.md",
+    "docs/demo-guide.md",
+    "docs/documentation-manifest.json",
+    "docs/evidence-index.md",
+    "docs/limitations.md",
+    "docs/model-card.md",
+    "docs/openapi.json",
+    "docs/reproduction.md",
+    "docs/requirements-docs.txt",
+    "evidence/ci/20261111T064816330942Z/junit.xml",
+    "evidence/ci/20261111T064816330942Z/pipeline.log",
+    "evidence/ci/20261111T064816330942Z/quality_gate.log",
+    "evidence/ci/20261111T064816330942Z/summary.json",
+    "evidence/ci/20261111T064816330942Z/syntax.log",
+    "evidence/ci/20261111T064816330942Z/tests.log",
+    "evidence/ci/20261111T110145372325Z/junit.xml",
+    "evidence/ci/20261111T110145372325Z/pipeline.log",
+    "evidence/ci/20261111T110145372325Z/quality_gate.log",
+    "evidence/ci/20261111T110145372325Z/summary.json",
+    "evidence/ci/20261111T110145372325Z/syntax.log",
+    "evidence/ci/20261111T110145372325Z/tests.log",
+    "evidence/ci/20261111T130012349165Z/junit.xml",
+    "evidence/ci/20261111T130012349165Z/pipeline.log",
+    "evidence/ci/20261111T130012349165Z/quality_gate.log",
+    "evidence/ci/20261111T130012349165Z/summary.json",
+    "evidence/ci/20261111T130012349165Z/syntax.log",
+    "evidence/ci/20261111T130012349165Z/tests.log",
+    "frontend/public/favicon.svg",
+    "frontend/public/icons.svg",
+    "frontend/src/assets/hero.png",
+    "frontend/src/assets/react.svg",
+    "frontend/src/assets/vite.svg",
+    "reports/frontend_progress.json"
+  ],
+  "generated_folders_removed": [
+    ".pytest_cache",
+    "tests/__pycache__",
+    "scripts/__pycache__",
+    "src/__pycache__",
+    "monitoring/exporters/__pycache__",
+    "frontend/dist"
+  ],
+  "checks": {
+    "docs_exactly_ten_files": true,
+    "six_pdfs_rendered_visually_reviewed": true,
+    "markdown_links_checked": 39,
+    "broken_markdown_links": 0,
+    "frozen_dvc_files_verified_unchanged": 53,
+    "dvc_status": "up to date",
+    "dvc_remote_status": "in sync",
+    "fresh_pytest": {
+      "total": 41,
+      "passed": 41,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 7.12
+    },
+    "frontend_lint": "passed",
+    "frontend_build": "passed",
+    "python_syntax": "passed",
+    "compose_configuration": "passed",
+    "git_diff_check": "passed",
+    "tracked_ignored_files": 0,
+    "prospective_files_50MiB_or_larger": 0,
+    "historical_git_blobs_50MiB_or_larger": 0,
+    "credential_pattern_matches_in_prospective_text_files": 0,
+    "repository_only_restore": {
+      "status": "passed",
+      "fresh_source_only_copy": true,
+      "external_original_dvc_store_used": false,
+      "bundled_archive_sha256": "764562649d78fbdf9a28b189904b5fce98046a75c9da7305c23842131ff7f56f",
+      "restored_files_matched": 53,
+      "dvc_status": "up to date",
+      "helper": "scripts/restore_submission.py"
+    }
+  },
+  "screenshots": {
+    "count": 41,
+    "content_reviewed": false,
+    "modified": false
+  },
+  "distribution_note": "Repository includes reproducibility/dvc-store.tar.gz and scripts/restore_submission.py. A clone can restore data/model objects without another download link. Dependencies/base images still need installation; live accounts/history and historical MLflow tracking state are initialized separately.",
+  "git_remote_configured": true,
+  "remote_authentication_tested": false,
+  "committed": false,
+  "pushed": false,
+  "part_5": "paused",
+  "experiment_report_scope": "Completed implementation, methods, workflows and measured results only."
+}

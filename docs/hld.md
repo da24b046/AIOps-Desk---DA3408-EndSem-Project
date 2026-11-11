@@ -2,7 +2,7 @@
 
 Design rationale, model decisions and measured outcome
 
-Evidence snapshot: 2026-11-11. Source checkout: 280ba66edbba; uncommitted changes at generation: True.
+Reviewed for submission using the recorded 2026-11-11 measurements and completed handover checks. Evidence paths and scope are consolidated in the root report.md; document hashes are recorded in reports/documentation_check.json.
 
 ## 1. Goals and roles
 
@@ -84,4 +84,4 @@ The short performance demonstration sent 20 requests with concurrency 2: 0 failu
 
 ## 9. Deferred work
 
-See limitations.md for the explicit gap list, including local-environment training, manual release actions, limited monitoring scope, optional tracking, no TLS/idempotency/batch API, and incomplete unattended recovery. These are documented simplifications rather than completed blueprint items.
+See the root report.md, section 12, for the explicit gap list, including local-environment training, manual release actions, limited monitoring scope, optional tracking, no TLS/idempotency/batch API, and incomplete unattended recovery. These are documented simplifications rather than completed blueprint items.

@@ -1,30 +1,51 @@
-# Python
+# Python environments and generated caches
 __pycache__/
 *.py[cod]
 .venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
 
-# Local secrets
+# Private configuration and local service state
 .env
-
-# Raw datasets will be versioned with DVC later
-
-# Prepared datasets
-
-# Dataset splits
-
-# Model artifacts
-
-# Local service state
+.env.*
+!.env.example
 state/
 mlruns/
 
-# Spark output and temporary files
+# Spark temporary output (DVC owns the declared data/model outputs)
 spark-warehouse/
 metastore_db/
 derby.log
 artifacts/spark-*/
 
-# Test cache
-.pytest_cache/
-/state/drift/
-/state/feedback_export/
+# Local packaging, temporary output and editor files
+/submission/
+/build/
+/dist/
+/tmp/
+/logs/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+.DS_Store
+.idea/
+.vscode/
+
+# Frontend node_modules/dist are excluded by frontend/.gitignore.
+# DVC generates data/.gitignore, artifacts/.gitignore and .dvc/.gitignore.
+# Keep reports, screenshots, DVC pointers and the five PDF deliverables in Git.
+
+# Local agent, editor and cloud-client metadata
+.agents/
+.codex/
+.aws/
+
+# Small bundled DVC store makes a repo-link-only submission restorable
+!/reproducibility/dvc-store.tar.gz

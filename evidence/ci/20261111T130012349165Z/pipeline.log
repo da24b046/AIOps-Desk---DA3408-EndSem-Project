@@ -1,9 +1,0 @@
-WARNING: Process '/home/navadeep04/AIops/lib/python3.14/site-packages/dvc/__main__.py repro --single-item --force --no-run-cache spark_etl' with (Pid 1238539), in RWLock-file 'data/processed/tickets_clean.csv' had been killed. Auto removed it from the lock file.
-'data/processed.dvc' didn't change, skipping
-WARNING: Process '/home/navadeep04/AIops/lib/python3.14/site-packages/dvc/__main__.py repro --single-item --force --no-run-cache spark_etl' with (Pid 1238539), in RWLock-file 'data/raw' had been killed. Auto removed it from the lock file.
-'data/raw.dvc' didn't change, skipping
-Stage 'spark_etl' didn't change, skipping
-'data/splits.dvc' didn't change, skipping
-Stage 'train' didn't change, skipping
-Stage 'evaluate' didn't change, skipping
-Data and pipelines are up to date.

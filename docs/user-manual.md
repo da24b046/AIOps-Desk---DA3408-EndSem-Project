@@ -116,4 +116,4 @@ docker compose --profile observe stop
 
 Keep the Minikube profile stopped during normal Compose use. Avoid docker compose down -v: removing monitoring volumes loses their history; the application database is separately stored in an external named volume.
 
-For fresh-checkout restoration, offline backups, account initialization and document rebuilding, see reproduction.md. For demo sequence and limitations, see demo-guide.md and limitations.md.
+For fresh-checkout restoration, account initialization and document rebuilding, see the root README.md. The root report.md records the experiments, evidence and limitations. Demo/viva rehearsal is a separate activity.

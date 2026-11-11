@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+# Deliverables/media should not be treated as text patches.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pkl binary

@@ -23,3 +23,18 @@ frontend/node_modules/
 frontend/dist/
 !artifacts/serving/feedback-demo-001/
 !artifacts/serving/candidate-001-explained/
+
+# Documentation and local submission packages are not runtime build inputs
+docs/
+README.md
+submission/
+*.zip
+*.tar
+*.tar.gz
+
+# Submission report and local tool metadata
+report.md
+report.pdf
+.agents/
+.codex/
+.aws/

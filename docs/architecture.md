@@ -2,7 +2,7 @@
 
 DA3408 local AI application | As-built documentation
 
-Evidence snapshot: 2026-11-11. Source checkout: 280ba66edbba; uncommitted changes at generation: True.
+Reviewed for submission using the recorded 2026-11-11 measurements and completed handover checks. Evidence paths and scope are consolidated in the root report.md; document hashes are recorded in reports/documentation_check.json.
 
 ## 1. Problem and boundary
 
@@ -12,7 +12,14 @@ All compute and storage run on one local machine. The dataset was downloaded onc
 
 ## 2. Architecture diagram
 
-[[ARCHITECTURE_DIAGRAM]]
+```mermaid
+flowchart LR
+    UI[React and Nginx] --> API[FastAPI]
+    API --> MODEL[MLflow model server]
+    API --> DB[(SQLite volume)]
+    WORKER[Terminal pipeline worker] --> API
+    MONITOR[Prometheus and Grafana] --> API
+```
 
 Solid arrows show the main prediction and persistence path. The terminal worker communicates with the API and executes offline commands in the repository. Prometheus observes the online services and exporters; it does not execute training or drift analysis.
 
@@ -62,6 +69,8 @@ The HTTP/local-bundle comparison checked all 81 validation inputs. The KServe re
 
 Held-out results were calculated only after selection and review policy were frozen. Earlier test_set_used=false flags refer to their own earlier runs; the final test report correctly records test_set_used=true.
 
-Primary evidence: docs/openapi.json; compose.yaml; dvc.yaml; reports/final_test_evaluation.json; reports/kserve_check.json; reports/release_switch_check.json; reports/pipeline_recovery_check.json.
+Final handover was also exercised: all 53 DVC-owned files across 11 output roots matched in a clean restored checkout. The normal application restarted with eight containers, saved account/history access, ten Prometheus targets and four successful HTTP probes. reports/final_restore_check.json and reports/final_startup_check.json preserve the actual results.
 
-For the full implementation boundary, see limitations.md. The source blueprint is a plan; this documentation describes the smaller implementation actually exercised.
+Primary evidence: src/api.py and its included routers; compose.yaml; dvc.yaml; reports/final_test_evaluation.json; reports/kserve_check.json; reports/release_switch_check.json; reports/pipeline_recovery_check.json.
+
+For the full implementation boundary, see the root report.md, section 12. The source blueprint is a plan; this documentation describes the smaller implementation actually exercised.

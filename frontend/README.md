@@ -1,16 +1,44 @@
-# React + Vite
+# AIOpsDesk frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Independent React UI for the local AIOpsDesk API. This folder contains application code rather than the original Vite starter page.
 
-Currently, two official plugins are available:
+## Screens and components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| File | Purpose |
+| --- | --- |
+| `src/App.jsx` | Sign-in, service readiness, navigation and ticket analysis. |
+| `src/History.jsx` | Role-filtered prediction history and saved result details. |
+| `src/FeedbackForm.jsx` | Reviewed labels, reasons and confirmation before submission. |
+| `src/FeedbackReview.jsx` | Feedback status and maintainer approval/rejection. |
+| `src/PipelineConsole.jsx` | Maintainer job history, real stage progress, start/retry/cancel. |
+| `src/PredictionExplanation.jsx` | Signed word/phrase contributions for each target. |
+| `src/api.js` | JSON requests, bearer tokens, timeouts and user-facing errors. |
+| `src/App.css`, `src/index.css` | Responsive layout, contrast, focus and labelled statuses. |
 
-## React Compiler
+The browser communicates only through REST. It contains no training or model-loading code. Sessions are held in memory, so refreshing requires another sign-in.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Configuration
 
-## Expanding the Oxlint configuration
+`public/config.js` sets `window.AIOPS_CONFIG.API_BASE_URL`, normally `/api`. In Docker, Nginx forwards `/api/` to `api:8000`. During development, `vite.config.js` proxies the same prefix to `http://127.0.0.1:8000`.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Local development
+
+Run from the repository root:
+
+```bash
+npm --prefix frontend ci
+npm --prefix frontend run dev
+```
+
+Vite uses **127.0.0.1:3002** with a strict port. Stop the Docker frontend first if using that port for development; keep the API/model running. Stop Vite before starting the Docker frontend again. Do not terminate an unrelated process to free the port.
+
+## Checks and production build
+
+```bash
+npm --prefix frontend run lint
+npm --prefix frontend run build
+```
+
+`package-lock.json` pins the npm dependency resolution. Generated `node_modules/` and `dist/` are ignored by Git. The frontend Dockerfile performs its own npm install/build and serves the output with nonroot Nginx; see `../deploy/docker/Dockerfile.frontend`.
+
+For complete setup, measured results and the user manual, see the [main README](../README.md).

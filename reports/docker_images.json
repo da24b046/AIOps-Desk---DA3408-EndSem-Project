@@ -1,46 +1,66 @@
 {
+  "recorded_at": "2026-11-11T16:10:44.873152+00:00",
+  "source_report": "reports/final_startup_check.json",
   "base_image": "python@sha256:2ca02f32b4d9d893863367ce07ec1972819f476dd38d8612f2a9cb6a41cbb727",
   "images": {
     "api": {
       "reference": "aiopsdesk-api:dev",
-      "image_id": "sha256:4f567181cb9fea5d49e241959cdcd7260fef583618f635c8c529bd8d3c8afd28",
-      "created_at": "2026-11-11T12:36:27.97374435+05:30",
-      "architecture": "amd64",
-      "os": "linux",
-      "configured_user": "app"
+      "image_id": "sha256:0895e15bcc0609c382f2892e99acae13ce3f82c629ee1dc785ffbf03d1a6d57d",
+      "recorded_health": "healthy"
     },
-    "model": {
-      "reference": "aiopsdesk-model:candidate-001",
-      "image_id": "sha256:51bf3ca77cae310d98d73776bb846ae8d86875165fb24193de00596b44b52ced",
-      "created_at": "2026-11-11T12:40:00.077624673+05:30",
-      "architecture": "amd64",
-      "os": "linux",
-      "configured_user": "app"
+    "blackbox": {
+      "reference": "prom/blackbox-exporter@sha256:ea1c7aa3ef3f307cd03e85f34abb604478ccb90b567fc690da0cd9776da76b13",
+      "image_id": "sha256:ea1c7aa3ef3f307cd03e85f34abb604478ccb90b567fc690da0cd9776da76b13",
+      "recorded_health": "healthy"
     },
     "frontend": {
       "reference": "aiopsdesk-frontend:dev",
-      "image_id": "sha256:ea28acf5bf7c3342deb64c05810d477d9ee56983bfea94b1e29c78336e41a819",
-      "created_at": "2026-11-11T15:10:14.970183095+05:30",
-      "architecture": "amd64",
-      "os": "linux",
-      "configured_user": "101"
+      "image_id": "sha256:672acd989e140e1ed9052871e1a3d9790d01b924b9d3571493bea890cf2ea33e",
+      "recorded_health": "healthy"
+    },
+    "grafana": {
+      "reference": "grafana/grafana@sha256:0615ec4fbd4072004b7d86b46ded63013a74b7d6eb1119273dd89e8fa25c13cf",
+      "image_id": "sha256:0615ec4fbd4072004b7d86b46ded63013a74b7d6eb1119273dd89e8fa25c13cf",
+      "recorded_health": "healthy"
+    },
+    "model": {
+      "reference": "aiopsdesk-model:candidate-001-explained",
+      "image_id": "sha256:d36f918645d68c34e5634cbc19abbf432ff65f7dac1b05cace9baa216542f6a2",
+      "recorded_health": "healthy"
+    },
+    "node-exporter": {
+      "reference": "prom/node-exporter@sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0",
+      "image_id": "sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0",
+      "recorded_health": "not_configured"
+    },
+    "prometheus": {
+      "reference": "prom/prometheus@sha256:e04987641b57704f408e31f6373ba4138ecf27cb4a165d24aabb6c38fddd0f06",
+      "image_id": "sha256:e04987641b57704f408e31f6373ba4138ecf27cb4a165d24aabb6c38fddd0f06",
+      "recorded_health": "healthy"
+    },
+    "reports-exporter": {
+      "reference": "aiopsdesk-reports:monitoring-001",
+      "image_id": "sha256:0895e15bcc0609c382f2892e99acae13ce3f82c629ee1dc785ffbf03d1a6d57d",
+      "recorded_health": "healthy"
     }
   },
   "configuration_sha256": {
-    ".dockerignore": "b4428057b27a98495c5206a20c29f6f3eef721d3948cc83de0102cba8f83438f",
-    "compose.yaml": "a426a812e1a58b2d0886e0a6b997eda72ceeb73793b5b2f99488fdcdb322292d",
+    ".dockerignore": "08824c32d5a85c8eadd46634754ea1a9c31a3c7eac2fab9026292a54d2801c54",
+    "compose.yaml": "73a3d3019ce57509c2645bd83608f63af1bda957a0ab614ef75a2998905f3fa5",
     "deploy/docker/Dockerfile.api": "c93e21da1abdf843b75e39d1d1615202ffefe314543a817ac2181e71f094fd7c",
     "deploy/docker/Dockerfile.model": "a28cbfc50a363e4970d8726acb7de1a5caecc2e296aa219baf6ced936a0444bf",
-    "deploy/docker/requirements-api.txt": "8a93b65fd6f5fc6dad16c67ee2f743a1f93d246047a518de044457bbd5337fde",
+    "deploy/docker/requirements-api.txt": "4aba6b3f33aaa6f7abd2e3b42e2a0c94c4594a094a1618a3a4f7cae55bccfcb1",
     "deploy/docker/requirements-model.txt": "85e3dcea66cded65047b1ce4165893d6999eeb2d955a7a651358753690fdacc1",
-    "deploy/docker/requirements-api.lock.txt": "a5da0781e258c2f2eba742e51cda383fd35405561aa7163768f09c41e8394bc9",
+    "deploy/docker/requirements-api.lock.txt": "cc1e05f42a07a0411aa11bbf5e449957f045063a4bd6a1d1071942ed91f9c7ce",
     "deploy/docker/requirements-model.lock.txt": "6d8c4b50ad40e9bd554d910567dfa825fc5ff08d2267b432c92dd3dfa490ec5b",
     "deploy/docker/Dockerfile.frontend": "326693201483780d3a59cb706aea0ff368ccf4e26fcb6fd4b2b59739374e6bd5",
     "deploy/docker/nginx.conf": "e67e731ba389d935217d4b999079ff1e1a5e2ac596b59d57096d02c3157b6533",
-    "frontend/package-lock.json": "192859ae788732604ee51c4f02eaa0d228757632b96052d8d381bdc60915424a"
+    "frontend/package-lock.json": "192859ae788732604ee51c4f02eaa0d228757632b96052d8d381bdc60915424a",
+    "deploy/docker/Dockerfile.model-explained": "1276563065bb4efa0a5a1b695827243a890678cd319010ff3ffb2054ac8cbaf4"
   },
   "frontend_base_images": {
     "node": "node@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9",
     "nginx": "ghcr.io/nginx/nginx-unprivileged@sha256:c3fc8fa482be50ef709c6438eb1bc98d50dbfe5a9b48be90711b8814f4dfd701"
-  }
+  },
+  "note": "Runtime identities are the recorded final-startup observations. Configuration hashes are refreshed during submission cleanup; no services were restarted."
 }

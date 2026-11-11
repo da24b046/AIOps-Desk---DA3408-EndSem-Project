@@ -2,7 +2,7 @@
 
 Executed checks, case inventory and acceptance evidence
 
-Evidence snapshot: 2026-11-11. Source checkout: 280ba66edbba; uncommitted changes at generation: True.
+Reviewed for submission using the recorded 2026-11-11 measurements and completed handover checks. Evidence paths and scope are consolidated in the root report.md; document hashes are recorded in reports/documentation_check.json.
 
 ## 1. Test strategy
 
@@ -34,7 +34,7 @@ CI runs compileall, pytest, DVC reproduction and the pipeline gate. Docker build
 | T09 | Single active job and worker ownership | Concurrent create, claim identity and stage-order pytest cases |
 | T10 | Pipeline execute, reuse, cancel and retry | evidence/pipeline-console; cancellation/recovery reports |
 | T11 | Local CI failure and recovery | reports/ci_failure_demo.json and CI evidence |
-| T12 | DVC restore | reports/restore_check.json: earlier nine-file drill |
+| T12 | DVC restore | reports/final_restore_check.json: final 53-file drill; historical restore_check.json retained |
 | T13 | Container persistence | reports/container_check.json |
 | T14 | Drift controls and low support | drift_validation, drift_synthetic_demo and drift_recent reports |
 | T15 | Promotion rejection and rollback | promotion_decision.json; release_switch_check.json |
@@ -135,4 +135,4 @@ Monitoring verification reported the Node Exporter, report exporter and Grafana 
 
 Schema/authorization, immutable review, prediction persistence, numerical explanations, real pipeline execution, cancellation/retry, serving parity and explicit rollback have evidence. The feedback promotion decision remained keep_current_model. The explained bundle passed unchanged prediction/score parity.
 
-Final handover should repeat startup and a fresh-checkout DVC restore after the final source commit. Automated browser tests, full fault/load/security coverage, TLS/encryption verification and unattended worker recovery remain outside the demonstrated scope. See limitations.md; an unexecuted test is not a pass.
+Final handover passed: 53 DVC-owned files across 11 roots restored cleanly. Restart preserved accounts/history; eight containers, ten targets and four probes passed. See the final restore/startup reports and the root report.md, section 12.
