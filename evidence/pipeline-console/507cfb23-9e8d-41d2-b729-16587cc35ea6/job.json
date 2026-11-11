@@ -1,0 +1,66 @@
+{
+  "job_id": "507cfb23-9e8d-41d2-b729-16587cc35ea6",
+  "config_version": "pipeline-console-001",
+  "status": "succeeded",
+  "requested_by": "maintainer",
+  "reason": "Recovery after controlled cancellation",
+  "retry_of": "ef6347df-a9fc-480b-9bc9-70a91ad03dc0",
+  "created_at": "2026-11-11T12:58:47.032455+00:00",
+  "started_at": "2026-11-11T12:58:48.118955+00:00",
+  "finished_at": "2026-11-11T12:59:02.455086+00:00",
+  "updated_at": "2026-11-11T12:59:02.455086+00:00",
+  "cancel_reason": null,
+  "error_code": null,
+  "force_rebuild": true,
+  "stages": [
+    {
+      "id": "spark_etl",
+      "label": "Spark ETL",
+      "status": "succeeded",
+      "started_at": "2026-11-11T12:58:48.136184+00:00",
+      "finished_at": "2026-11-11T12:58:57.033267+00:00",
+      "elapsed_seconds": 8.89029986600508,
+      "counts": {
+        "input_rows": 500,
+        "retained_rows": 409,
+        "rejected_rows": 91
+      }
+    },
+    {
+      "id": "train",
+      "label": "Train category and priority models",
+      "status": "succeeded",
+      "started_at": "2026-11-11T12:58:57.047701+00:00",
+      "finished_at": "2026-11-11T12:59:00.893054+00:00",
+      "elapsed_seconds": 3.8378712960111443,
+      "counts": {
+        "train_rows": 247
+      }
+    },
+    {
+      "id": "evaluate",
+      "label": "Evaluate validation set and quality gate",
+      "status": "succeeded",
+      "started_at": "2026-11-11T12:59:00.905376+00:00",
+      "finished_at": "2026-11-11T12:59:02.443064+00:00",
+      "elapsed_seconds": 1.526619568001479,
+      "counts": {
+        "validation_rows": 81
+      }
+    }
+  ],
+  "summary": {
+    "git_sha": "e97aafa773da1656f0446e9eb3b8f480e29d8cb2",
+    "git_dirty": true,
+    "train_sha256": "4c8a12fa64a11769b316f0e15b0b4dd4e4018a63ff5ef125247fcf11b38927f1",
+    "validation_sha256": "684b52974cab32bd430bf5809de1753c36017c20793f585972ecb000ad2aca98",
+    "test_set_used": false,
+    "deployment_attempted": false,
+    "quality_gate_passed": true,
+    "validation_rows": 81,
+    "dvc_lock_sha256": "a3218eff80ce71238aa489784fc90e6430e4ba9ef8e0cd9cc8d26dc14bc020ee",
+    "category_macro_f1": 0.7297348484848484,
+    "priority_macro_f1": 0.9004914004914004
+  },
+  "deployment_enabled": false
+}

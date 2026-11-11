@@ -474,3 +474,70 @@ select:disabled {
   flex: 1;
   min-height: 44px;
 }
+
+/* Pipeline state always includes text; borders also distinguish states. */
+.pipeline-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  margin: 1rem 0;
+}
+.pipeline-checkbox input {
+  width: auto;
+  margin: .25rem 0 0;
+}
+.pipeline-stages {
+  list-style: decimal;
+  padding-left: 1.5rem;
+}
+.pipeline-stages > li {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 2px solid #6b7280;
+  border-radius: .6rem;
+  background: #f8fafc;
+}
+.pipeline-stages h3 { margin-top: 0; }
+.pipeline-stages dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.pipeline-stages dd { margin-left: 0; font-weight: 700; }
+.pipeline-stages [data-status="succeeded"] {
+  border-color: #0072b2;
+  background: #eef6ff;
+}
+.pipeline-stages [data-status="reused"] {
+  border: 4px double #006b68;
+  background: #edf9f6;
+}
+.pipeline-stages [data-status="running"] {
+  border: 2px dashed #7040a0;
+  background: #f6f0ff;
+}
+.pipeline-stages [data-status="failed"],
+.pipeline-stages [data-status="interrupted"],
+.pipeline-stages [data-status="cancelled"] {
+  border: 2px dashed #9a4b00;
+  background: #fff5e6;
+}
+.pipeline-state {
+  padding: .75rem;
+  border: 2px solid #0072b2;
+  border-radius: .5rem;
+}
+.pipeline-state.state-failed,
+.pipeline-state.state-interrupted,
+.pipeline-state.state-cancelled,
+.pipeline-state.state-cancel_requested {
+  border-style: dashed;
+  border-color: #9a4b00;
+}
+@media (forced-colors: active) {
+  .pipeline-stages > li,
+  .pipeline-state {
+    background: Canvas;
+    border-color: CanvasText;
+  }
+}

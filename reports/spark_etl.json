@@ -10,7 +10,7 @@
   "output_format": "parquet",
   "python_output_matches": true,
   "parquet_readback_matches": true,
-  "startup_seconds": 2.257,
-  "etl_seconds_including_validation_and_write": 4.269,
-  "input_rows_per_etl_second": 117.13
+  "startup_seconds": 1.875,
+  "etl_seconds_including_validation_and_write": 4.1,
+  "input_rows_per_etl_second": 121.96
 }

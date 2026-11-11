@@ -1,0 +1,8 @@
+{
+  "cancelled_job_id": "ef6347df-a9fc-480b-9bc9-70a91ad03dc0",
+  "recovery_job_id": "507cfb23-9e8d-41d2-b729-16587cc35ea6",
+  "retry_link_verified": true,
+  "all_stages_executed": true,
+  "quality_gate_passed": true,
+  "deployment_attempted": false
+}

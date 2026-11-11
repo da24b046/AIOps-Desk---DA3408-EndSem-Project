@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { apiRequest } from './api'
 import History from './History'
 import FeedbackReview from './FeedbackReview'
+import PipelineConsole from './PipelineConsole'
 import './App.css'
 
 export default function App() {
@@ -187,8 +188,18 @@ export default function App() {
                   Feedback
                 </button>
               )}
+              {session.user.role === 'maintainer' && (
+                <button type="button" disabled={busy}
+                  aria-current={page === 'pipeline' ? 'page' : undefined}
+                  onClick={() => setPage('pipeline')}>
+                  Pipeline
+                </button>
+              )}
             </nav>
-            {page === 'feedback' ? (
+            {page === 'pipeline' && session.user.role === 'maintainer' ? (
+              <PipelineConsole token={session.access_token}
+                onSessionExpired={handleSessionExpired} />
+            ) : page === 'feedback' ? (
               <FeedbackReview token={session.access_token} user={session.user}
                 onSessionExpired={handleSessionExpired} />
             ) : page === 'history' ? (

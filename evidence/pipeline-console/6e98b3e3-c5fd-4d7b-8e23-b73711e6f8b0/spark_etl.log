@@ -1,0 +1,81 @@
+Running stage 'spark_etl':
+> spark-submit --master local[2] --driver-memory 1g scripts/spark_etl.py
+WARNING: Using incubator modules: jdk.incubator.vector
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/11/11 18:17:12 WARN Utils: Your hostname, navadeep04-Katana-17-B13UDXK, resolves to a loopback address: 127.0.1.1; using 10.104.53.132 instead (on interface wlo1)
+26/11/11 18:17:12 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+26/11/11 18:17:13 INFO SparkContext: Running Spark version 4.3.0
+26/11/11 18:17:13 INFO SparkContext: OS info Linux, 7.0.0-42-generic, amd64
+26/11/11 18:17:13 INFO SparkContext: Java version 17.0.20.1+1-1-26.04-Ubuntu
+26/11/11 18:17:13 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/11 18:17:13 INFO ResourceUtils: ==============================================================
+26/11/11 18:17:13 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/11 18:17:13 INFO ResourceUtils: ==============================================================
+26/11/11 18:17:13 INFO SparkContext: Submitted application: AIOpsDesk-Ticket-ETL
+26/11/11 18:17:13 INFO SecurityManager: Changing view acls to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: Changing modify acls to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: Changing view acls groups to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: Changing modify acls groups to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: navadeep04 groups with view permissions: EMPTY; users with modify permissions: navadeep04; groups with modify permissions: EMPTY; RPC SSL disabled
+26/11/11 18:17:13 INFO Utils: Successfully started service 'sparkDriver' on port 37427.
+26/11/11 18:17:13 INFO SparkEnv: Registering MapOutputTracker
+26/11/11 18:17:13 INFO SparkEnv: Registering BlockManagerMaster
+26/11/11 18:17:13 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/11 18:17:13 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/11 18:17:13 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/11 18:17:13 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-4dcedb06-dcf2-4a4a-a195-f1d671726f57
+26/11/11 18:17:13 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/11 18:17:13 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/11/11 18:17:13 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/11/11 18:17:13 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/11 18:17:13 INFO ResourceProfile: Limiting resource is cpu
+26/11/11 18:17:13 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/11 18:17:13 INFO SecurityManager: Changing view acls to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: Changing modify acls to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: Changing view acls groups to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: Changing modify acls groups to: navadeep04
+26/11/11 18:17:13 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: navadeep04 groups with view permissions: EMPTY; users with modify permissions: navadeep04; groups with modify permissions: EMPTY; RPC SSL disabled
+26/11/11 18:17:13 INFO StreamingShuffleManager: Using StreamingShuffleManager
+26/11/11 18:17:13 INFO Executor: Starting executor ID driver on host 10.104.53.132
+26/11/11 18:17:13 INFO Executor: Running Spark version 4.3.0
+26/11/11 18:17:13 INFO Executor: OS info Linux, 7.0.0-42-generic, amd64
+26/11/11 18:17:13 INFO Executor: Java version 17.0.20.1+1-1-26.04-Ubuntu
+26/11/11 18:17:13 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/11/11 18:17:13 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@7e55cf3c for default.
+26/11/11 18:17:13 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 37065.
+26/11/11 18:17:13 INFO NettyBlockTransferService: Server created on 10.104.53.132:37065
+26/11/11 18:17:13 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/11 18:17:13 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.104.53.132, 37065, None)
+26/11/11 18:17:13 INFO BlockManagerMasterEndpoint: Registering block manager 10.104.53.132:37065 with 434.4 MiB RAM, BlockManagerId(driver, 10.104.53.132, 37065, None)
+26/11/11 18:17:13 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.104.53.132, 37065, None)
+26/11/11 18:17:13 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 10.104.53.132, 37065, None)
+
+SPARK ETL PASSED
+{
+  "spark_version": "4.3.0",
+  "master": "local[2]",
+  "input_sha256": "27ffa4446d557278a8e1922b8f639fb9d104c13676c18927793e52e3f45c0151",
+  "input_rows": 500,
+  "excluded_category_rows": 88,
+  "retained_rows": 409,
+  "total_excluded_rows": 91,
+  "output": "data/spark/tickets.parquet",
+  "output_format": "parquet",
+  "python_output_matches": true,
+  "parquet_readback_matches": true,
+  "startup_seconds": 1.941,
+  "etl_seconds_including_validation_and_write": 3.967,
+  "input_rows_per_etl_second": 126.04
+}
+Spark session stopped.
+Updating lock file 'dvc.lock'
+
+To track the changes with git, run:
+
+	git add dvc.lock
+
+To enable auto staging, run:
+
+	dvc config core.autostage true
+Use `dvc push` to send your updates to remote storage.

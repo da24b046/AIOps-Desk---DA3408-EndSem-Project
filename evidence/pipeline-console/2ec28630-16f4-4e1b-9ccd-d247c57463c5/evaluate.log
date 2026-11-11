@@ -1,0 +1,26 @@
+Running stage 'evaluate':
+> python scripts/pipeline_evaluate.py
+
+PIPELINE VALIDATION RESULTS
+category: macro-F1=0.7297, majority=0.1811, gate_passed=True
+  macro_f1_beats_majority: True
+  validation_has_all_model_classes: True
+  all_classes_predicted: True
+  valid_probabilities: True
+priority: macro-F1=0.9005, majority=0.3468, gate_passed=True
+  macro_f1_beats_majority: True
+  validation_has_all_model_classes: True
+  all_classes_predicted: True
+  valid_probabilities: True
+Test set used: False
+QUALITY GATE: PASSED
+Updating lock file 'dvc.lock'
+
+To track the changes with git, run:
+
+	git add dvc.lock
+
+To enable auto staging, run:
+
+	dvc config core.autostage true
+Use `dvc push` to send your updates to remote storage.

@@ -22,6 +22,11 @@ from src.sessions import current_user, initialize_sessions, router as session_ro
 from src.history import router as history_router
 from src.feedback import initialize_feedback, router as feedback_router
 from src.reviews import initialize_reviews, router as review_router
+from src.pipeline_worker_api import router as pipeline_worker_router
+
+from src.pipeline_jobs import (
+    initialize_pipeline_jobs, router as pipeline_router,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = json.loads(
@@ -112,6 +117,7 @@ async def lifespan(app):
     initialize_sessions()
     initialize_feedback()
     initialize_reviews()
+    initialize_pipeline_jobs()
     yield
 
 
@@ -270,6 +276,10 @@ app.include_router(history_router)
 app.include_router(feedback_router)
 
 app.include_router(review_router)
+
+app.include_router(pipeline_router)
+
+app.include_router(pipeline_worker_router)
 
 install_metrics(
     app,

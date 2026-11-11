@@ -1,0 +1,19 @@
+Running stage 'train':
+> python scripts/pipeline_train.py
+
+PIPELINE TRAINING PASSED
+Training rows: 247
+category: C=2.0
+priority: C=0.5
+Output: artifacts/pipeline_candidate
+Test set used for training or evaluation: False
+Updating lock file 'dvc.lock'
+
+To track the changes with git, run:
+
+	git add dvc.lock
+
+To enable auto staging, run:
+
+	dvc config core.autostage true
+Use `dvc push` to send your updates to remote storage.
