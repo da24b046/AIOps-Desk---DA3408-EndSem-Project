@@ -1,0 +1,108 @@
+schema: '2.0'
+stages:
+  spark_etl:
+    cmd: spark-submit --master local[2] --driver-memory 1g scripts/spark_etl.py
+    deps:
+    - path: configs/data.json
+      hash: md5
+      md5: 919869e1b78ec513d07bec9d480e976f
+      size: 103
+    - path: data/metadata/source.json
+      hash: md5
+      md5: 5bb4e36a59f3e36575f1df5ddc715b5b
+      size: 687
+    - path: data/processed/tickets_clean.csv
+      hash: md5
+      md5: fecfdba94f494efbe837d35a72faa832
+      size: 200598
+    - path: data/raw
+      hash: md5
+      md5: 223ca66762dbf2df17fb61ded5137d88.dir
+      size: 263690
+      nfiles: 1
+    - path: requirements.txt
+      hash: md5
+      md5: f2a1cddf9bb53e4942991511045d0d86
+      size: 218
+    - path: scripts/spark_etl.py
+      hash: md5
+      md5: 01af7cb632fac6a4a91dbfca4f71aae1
+      size: 5557
+    outs:
+    - path: data/spark
+      hash: md5
+      md5: 399f763380739dff8f3fe407c8be2113.dir
+      size: 95546
+      nfiles: 4
+    - path: reports/spark_etl.json
+      hash: md5
+      md5: d54cfba63675e4c01c823f7daf471d0a
+      size: 510
+  train:
+    cmd: python scripts/pipeline_train.py
+    deps:
+    - path: configs/selected_models.json
+      hash: md5
+      md5: fb6d7ef328a1968aa1a3773077f1a742
+      size: 550
+    - path: data/spark
+      hash: md5
+      md5: 399f763380739dff8f3fe407c8be2113.dir
+      size: 95546
+      nfiles: 4
+    - path: data/splits/assignments.csv
+      hash: md5
+      md5: b174acc0ed2d12c4fc067d15443ab6dd
+      size: 11392
+    - path: requirements.txt
+      hash: md5
+      md5: f2a1cddf9bb53e4942991511045d0d86
+      size: 218
+    - path: scripts/pipeline_train.py
+      hash: md5
+      md5: 39dbf70c0e56107a260b884a9e327022
+      size: 3735
+    outs:
+    - path: artifacts/pipeline_candidate
+      hash: md5
+      md5: 0af7a28380e9a8cc541b92b904cd0c51.dir
+      size: 339780
+      nfiles: 3
+  evaluate:
+    cmd: python scripts/pipeline_evaluate.py
+    deps:
+    - path: artifacts/pipeline_candidate
+      hash: md5
+      md5: 0af7a28380e9a8cc541b92b904cd0c51.dir
+      size: 339780
+      nfiles: 3
+    - path: configs/pipeline_acceptance.json
+      hash: md5
+      md5: 16afccca1c0cf1f8981e87216f64f4ce
+      size: 167
+    - path: configs/selected_models.json
+      hash: md5
+      md5: fb6d7ef328a1968aa1a3773077f1a742
+      size: 550
+    - path: data/spark
+      hash: md5
+      md5: 399f763380739dff8f3fe407c8be2113.dir
+      size: 95546
+      nfiles: 4
+    - path: data/splits/assignments.csv
+      hash: md5
+      md5: b174acc0ed2d12c4fc067d15443ab6dd
+      size: 11392
+    - path: requirements.txt
+      hash: md5
+      md5: f2a1cddf9bb53e4942991511045d0d86
+      size: 218
+    - path: scripts/pipeline_evaluate.py
+      hash: md5
+      md5: 05cab6892f5b540ffccf7b2c504847bf
+      size: 5664
+    outs:
+    - path: reports/pipeline_evaluation.json
+      hash: md5
+      md5: e9a41a40a1ce3408885fee23e0abd548
+      size: 2992

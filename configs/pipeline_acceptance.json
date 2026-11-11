@@ -1,0 +1,6 @@
+{
+  "evaluation_split": "validation",
+  "minimum_macro_f1_gain_over_majority": 0.0,
+  "require_all_classes_predicted": true,
+  "probability_sum_tolerance": 0.000001
+}

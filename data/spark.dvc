@@ -1,6 +1,0 @@
-outs:
-- md5: d2a66170c2c3c76f534b992f1fb18972.dir
-  size: 95546
-  nfiles: 4
-  hash: md5
-  path: spark

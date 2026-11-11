@@ -23,3 +23,6 @@ spark-warehouse/
 metastore_db/
 derby.log
 artifacts/spark-*/
+
+# Test cache
+.pytest_cache/

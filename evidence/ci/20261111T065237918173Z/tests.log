@@ -1,0 +1,22 @@
+............F                                                            [100%]
+=================================== FAILURES ===================================
+__________________________ test_deliberate_ci_failure __________________________
+
+    def test_deliberate_ci_failure():
+>       assert False, "Intentional CI failure demonstration."
+E       AssertionError: Intentional CI failure demonstration.
+E       assert False
+
+tests/test_ci_failure_demo.py:4: AssertionError
+=============================== warnings summary ===============================
+../../AIops/lib/python3.14/site-packages/anyio/pytest_plugin.py:14
+  /home/navadeep04/AIops/lib/python3.14/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_ci_failure_demo.py::test_deliberate_ci_failure - AssertionE...
+1 failed, 12 passed, 1 warning in 2.05s

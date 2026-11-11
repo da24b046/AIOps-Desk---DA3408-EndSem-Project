@@ -1,0 +1,38 @@
+stages:
+  spark_etl:
+    cmd: spark-submit --master local[2] --driver-memory 1g scripts/spark_etl.py
+    deps:
+    - configs/data.json
+    - data/metadata/source.json
+    - data/processed/tickets_clean.csv
+    - data/raw
+    - requirements.txt
+    - scripts/spark_etl.py
+    outs:
+    - data/spark
+    metrics:
+    - reports/spark_etl.json:
+        cache: false
+  train:
+    cmd: python scripts/pipeline_train.py
+    deps:
+    - configs/selected_models.json
+    - data/spark
+    - data/splits/assignments.csv
+    - requirements.txt
+    - scripts/pipeline_train.py
+    outs:
+    - artifacts/pipeline_candidate
+  evaluate:
+    cmd: python scripts/pipeline_evaluate.py
+    deps:
+    - artifacts/pipeline_candidate
+    - configs/pipeline_acceptance.json
+    - configs/selected_models.json
+    - data/spark
+    - data/splits/assignments.csv
+    - requirements.txt
+    - scripts/pipeline_evaluate.py
+    metrics:
+    - reports/pipeline_evaluation.json:
+        cache: false
