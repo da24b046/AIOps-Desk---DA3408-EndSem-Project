@@ -1,0 +1,16 @@
+{
+  "exported_at": "2026-11-11T11:12:43.114947+00:00",
+  "source": "authenticated_prediction_history_api",
+  "selection": "latest 100 records visible to authenticated user",
+  "history_rows_fetched": 13,
+  "matching_rows_exported": 13,
+  "other_version_rows_excluded": 0,
+  "older_history_available": false,
+  "model_version": "candidate-001",
+  "policy_version": "policy-001",
+  "redacted_inputs_only": true,
+  "output": "state/drift/recent_tickets.csv",
+  "output_sha256": "d4c02a9809e180b9558e0ee0d56edf478aa0b5a420478dd46cf992335886661f",
+  "oldest_selected_at": "2026-11-10T18:57:28.899802+00:00",
+  "newest_selected_at": "2026-11-11T10:31:50.620494+00:00"
+}
