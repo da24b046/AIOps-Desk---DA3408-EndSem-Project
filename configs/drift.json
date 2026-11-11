@@ -1,0 +1,8 @@
+{
+  "reference_data": "data/splits/train.csv",
+  "minimum_current_rows": 30,
+  "text_length_ks_threshold": 0.30,
+  "unknown_token_fraction_threshold": 0.30,
+  "token_pattern": "[a-zA-Z]{2,}",
+  "automatic_retraining": false
+}

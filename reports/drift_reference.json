@@ -1,0 +1,12 @@
+{
+  "reference_version": "drift-reference-001",
+  "source": "data/splits/train.csv",
+  "source_sha256": "4c8a12fa64a11769b316f0e15b0b4dd4e4018a63ff5ef125247fcf11b38927f1",
+  "training_rows": 247,
+  "vocabulary_size": 1616,
+  "text_length_min": 64,
+  "text_length_median": 362.0,
+  "text_length_max": 3484,
+  "reference_sha256": "7f7deb8918590026a2aaea1ad24d91ef7465ad8e53f598176ce51d466c24a96a",
+  "test_set_used": false
+}

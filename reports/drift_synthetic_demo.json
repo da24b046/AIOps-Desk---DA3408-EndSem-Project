@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-11T11:08:33.816184+00:00",
+  "reference_version": "drift-reference-001",
+  "reference_sha256": "7f7deb8918590026a2aaea1ad24d91ef7465ad8e53f598176ce51d466c24a96a",
+  "config_sha256": "8dbc87dd085a5e4cdafcd8e264cdaf66866e9ff50fa0ceeb2ccfa225d467269e",
+  "batch": {
+    "kind": "synthetic_shift_demo",
+    "source": "generated_in_memory"
+  },
+  "thresholds": {
+    "minimum_current_rows": 30,
+    "text_length_ks": 0.3,
+    "unknown_token_fraction": 0.3
+  },
+  "result": {
+    "rows": 81,
+    "status": "evaluated",
+    "text_length_ks_distance": 0.9959514170040485,
+    "unknown_token_fraction": 1.0,
+    "signals": {
+      "text_length": true,
+      "unfamiliar_vocabulary": true
+    },
+    "drift_detected": true
+  },
+  "retraining_triggered": false,
+  "model_changed": false
+}
