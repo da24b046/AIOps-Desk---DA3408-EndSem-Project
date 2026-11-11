@@ -1,0 +1,23 @@
+{
+  "mlflow_run_id": "39eab1933741484880cbdc86b8dbe2e6",
+  "tracking_uri": "http://127.0.0.1:5000",
+  "entry_point": "main",
+  "environment_manager": "local",
+  "python_version": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "force_requested": true,
+  "command": [
+    "dvc",
+    "repro",
+    "--force",
+    "evaluate"
+  ],
+  "pipeline_exit_code": 0,
+  "validation_rows": 81,
+  "quality_gate_passed": true,
+  "dvc_lock_sha256": "fed7876a64d0018d780a7aa40edc6db677faac1c13558b2cd7fb89829ea48412",
+  "requirements_sha256": "797c4603f6002a987679ee8c3d19db166c538b5f6e331f86ecdc93b12560c4fe",
+  "git_sha": "7a16c24e301f8524f320250cb00de6c3e72c1b9c",
+  "git_dirty": true,
+  "test_set_used": false,
+  "deployment_attempted": false
+}

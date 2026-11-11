@@ -31,12 +31,12 @@ stages:
     outs:
     - path: data/spark
       hash: md5
-      md5: fac957790a5b6e9e1f1e8ffcf1ff03f0.dir
+      md5: 595ef31a4a1e1dc86b883960213f3408.dir
       size: 95546
       nfiles: 4
     - path: reports/spark_etl.json
       hash: md5
-      md5: 782cc68cbc15cb0921851e975cae5f76
+      md5: 008495bd5fcfdc8412c768d0cb711bfb
       size: 510
   train:
     cmd: python scripts/pipeline_train.py
@@ -47,7 +47,7 @@ stages:
       size: 550
     - path: data/spark
       hash: md5
-      md5: fac957790a5b6e9e1f1e8ffcf1ff03f0.dir
+      md5: 595ef31a4a1e1dc86b883960213f3408.dir
       size: 95546
       nfiles: 4
     - path: data/splits/assignments.csv
@@ -86,7 +86,7 @@ stages:
       size: 550
     - path: data/spark
       hash: md5
-      md5: fac957790a5b6e9e1f1e8ffcf1ff03f0.dir
+      md5: 595ef31a4a1e1dc86b883960213f3408.dir
       size: 95546
       nfiles: 4
     - path: data/splits/assignments.csv

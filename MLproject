@@ -1,0 +1,9 @@
+name: AIOpsDesk
+
+entry_points:
+  main:
+    parameters:
+      force:
+        type: int
+        default: 0
+    command: "python scripts/run_mlproject.py --force {force}"
