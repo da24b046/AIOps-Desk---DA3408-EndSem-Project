@@ -1,0 +1,38 @@
+{
+  "manifest_hashes_verified": true,
+  "pdf_checks": {
+    "architecture.pdf": {
+      "pages": 3,
+      "text_characters": 5978,
+      "bounds_check": "passed"
+    },
+    "hld.pdf": {
+      "pages": 3,
+      "text_characters": 7224,
+      "bounds_check": "passed"
+    },
+    "lld.pdf": {
+      "pages": 4,
+      "text_characters": 8761,
+      "bounds_check": "passed"
+    },
+    "test-plan.pdf": {
+      "pages": 4,
+      "text_characters": 9010,
+      "bounds_check": "passed"
+    },
+    "user-manual.pdf": {
+      "pages": 3,
+      "text_characters": 8812,
+      "bounds_check": "passed"
+    }
+  },
+  "final_document_hashes": {
+    "architecture.pdf": "8ead8567791073087260760eb186365ee532ef9b31fe1eeb4a6fcec55fe26b48",
+    "hld.pdf": "86674c96859db1347ca7fe1001e5a47159416ddac761c9e3f15d1a37afcbdb5e",
+    "lld.pdf": "473adcd04837026becc611628cbfab773dcb954f37400ee6119f1dabd5d5c7cf",
+    "test-plan.pdf": "8f43bbaf91a50fa65e3cbc4887255b66a2178ef6a29fca665ca9ce821cfadb63",
+    "user-manual.pdf": "c4968f18652cd3502b04d479964f668aee74dda90940482906a4976f009032ee"
+  },
+  "source_hashes_verified": true
+}

@@ -1,0 +1,178 @@
+{
+  "checked_at": "2026-11-11T13:31:47.764050+00:00",
+  "scope": "Short demonstration with 20 requests at concurrency 2",
+  "source_marker": "PERFORMANCE DEMO in saved ticket subjects",
+  "requests": 20,
+  "concurrency": 2,
+  "failed_requests": 0,
+  "latency_scope": "Client request, response parsing and validation",
+  "percentile_method": "nearest rank over all attempts",
+  "p50_seconds": 0.018356776010477915,
+  "p95_seconds": 0.02524742198875174,
+  "maximum_seconds": 0.02899039999465458,
+  "wall_seconds": 0.2028791359916795,
+  "observed_requests_per_second": 98.58086146827952,
+  "acceptance": {
+    "maximum_failed_requests": 0,
+    "p95_seconds_limit": 1.0,
+    "passed": true
+  },
+  "runtime_images": {
+    "api": {
+      "image_id": "sha256:0895e15bcc0609c382f2892e99acae13ce3f82c629ee1dc785ffbf03d1a6d57d",
+      "image_reference": "aiopsdesk-api:dev"
+    },
+    "model": {
+      "image_id": "sha256:d36f918645d68c34e5634cbc19abbf432ff65f7dac1b05cace9baa216542f6a2",
+      "image_reference": "aiopsdesk-model:candidate-001-explained"
+    },
+    "frontend": {
+      "image_id": "sha256:672acd989e140e1ed9052871e1a3d9790d01b924b9d3571493bea890cf2ea33e",
+      "image_reference": "aiopsdesk-frontend:dev"
+    }
+  },
+  "model_version": "candidate-001",
+  "policy_version": "policy-001",
+  "request_results": [
+    {
+      "request_number": 1,
+      "latency_seconds": 0.02524742198875174,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 2,
+      "latency_seconds": 0.020659147994592786,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 3,
+      "latency_seconds": 0.020302317017922178,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 4,
+      "latency_seconds": 0.0187216860067565,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 5,
+      "latency_seconds": 0.018830186978448182,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 6,
+      "latency_seconds": 0.017745911027304828,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 7,
+      "latency_seconds": 0.01706748901051469,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 8,
+      "latency_seconds": 0.017869918985525146,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 9,
+      "latency_seconds": 0.01860880001913756,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 10,
+      "latency_seconds": 0.018534225993789732,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 11,
+      "latency_seconds": 0.017909504007548094,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 12,
+      "latency_seconds": 0.01829604498925619,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 13,
+      "latency_seconds": 0.017953590984689072,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 14,
+      "latency_seconds": 0.02899039999465458,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 15,
+      "latency_seconds": 0.018356776010477915,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 16,
+      "latency_seconds": 0.020061346993315965,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 17,
+      "latency_seconds": 0.01728541898773983,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 18,
+      "latency_seconds": 0.01789624898810871,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 19,
+      "latency_seconds": 0.01837811098084785,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    },
+    {
+      "request_number": 20,
+      "latency_seconds": 0.017618829006096348,
+      "http_status": 200,
+      "valid_response": true,
+      "error_type": null
+    }
+  ]
+}

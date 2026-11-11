@@ -1,147 +1,59 @@
 # AIOpsDesk
 
-A small local IT ticket classification application for learning and
-demonstrating the AI application lifecycle.
+Local educational IT-ticket triage with separate React/Nginx, FastAPI and MLflow serving containers. Inputs are subject and description; outputs are category, priority, policy team, review status and signed word/phrase explanations.
 
-## Current scope
+## Start the initialized deployment
 
-- Inputs: ticket subject and description
-- Category labels: Software, Account, Network, Security
-- Priority labels: Medium, High
-- Team routing: a configurable policy, to be implemented
+```bash
+docker compose --profile observe up -d --wait --wait-timeout 180
+docker compose --profile observe ps
+```
 
-## Dataset
+Open http://127.0.0.1:3002. API documentation: http://127.0.0.1:8000/docs. Grafana: http://127.0.0.1:3001. Prometheus: http://127.0.0.1:9090. Existing local images and the external aiopsdesk_app_data volume are required. Credentials are private and are not documented in source.
 
-Source: https://huggingface.co/datasets/Console-AI/IT-helpdesk-synthetic-tickets
+Current fitted model: candidate-001; policy: policy-001; explanation bundle: explanations-001. The model image is aiopsdesk-model:candidate-001-explained. Tracking on port 5000 is optional and starts with bash scripts/start_mlflow.sh. It is independent of inference.
 
-The source contains 500 synthetic tickets.
-Current preparation retains 409 tickets and excludes 91.
-Original labels are preserved for retained tickets.
+## What is implemented
 
-The pinned revision, download URL, license metadata and SHA-256 checksum
-are recorded in data/metadata/source.json.
+- Pinned 500-row synthetic source; 409 retained tickets; grouped 247/81/81 train/validation/test splits.
+- Spark ETL, six bounded Ray trials, MLflow experiment tracking/serving/Projects, Git/DVC versioning and local CI.
+- Three authenticated roles; ownership-filtered history; pending feedback and immutable maintainer review.
+- Maintainer pipeline console with one-job guard, real stages/timings/counts, reuse, running cancellation and linked retry.
+- Approved synthetic feedback retraining demonstration, quality rejection and explicit model/policy switch/rollback.
+- Word-contribution explanations verified numerically and against 81 validation inputs.
+- Prometheus/Grafana, HTTP probes/alert recovery, host metrics and timestamped report metrics.
+- Separate local Minikube/KServe model exercise with HTTP parity evidence.
 
-Synthetic-data results demonstrate the workflow; they do not establish
-real-world IT support performance.
+## Final measured results
 
-## Current commands
+| Task | Accuracy | Macro-F1 | Majority macro-F1 |
+| --- | --- | --- | --- |
+| Category | 0.7778 | 0.7396 | 0.1811 |
+| Priority | 0.8765 | 0.8742 | 0.3520 |
 
-Run from the repository root with the project environment activated:
+The final test set has 81 synthetic tickets; 58 required review under the fixed 0.60 thresholds. Scores are not calibrated probabilities. 41 pytest cases passed. The short 20-request, two-client performance check had zero failures and p95 25.25 ms. This is a bounded demonstration, not a sustained-capacity claim.
 
-    python scripts/download_data.py
-    python scripts/prepare_data.py
+## Main commands
 
-The download script refuses to overwrite an existing snapshot.
-The preparation script regenerates its outputs from that snapshot.
+```bash
+python scripts/ci.py
+python -m scripts.pipeline_worker --once
+dvc status
+dvc push
+docker compose --profile observe stop
+```
 
-## Data versioning
+The worker runs in the activated AIops host environment. It processes browser-created jobs; keep it stopped during separate manual training. The main browser pipeline does not deploy models or automatically incorporate feedback. Do not rerun the locked test evaluation for tuning.
 
-Raw and processed CSV files are ignored by Git.
-DVC tracking and backup will be configured in a later step.
-Until then, the local CSV files are not backed up by this Git commit.
+## Documentation
 
-## Current status
+- [Architecture](docs/architecture.pdf) and [source](docs/architecture.md)
+- [High-level design](docs/hld.pdf) and [source](docs/hld.md)
+- [Low-level design](docs/lld.pdf) and [source](docs/lld.md)
+- [Test plan and cases](docs/test-plan.pdf) and [source](docs/test-plan.md)
+- [User manual](docs/user-manual.pdf) and [source](docs/user-manual.md)
+- [Dataset card](docs/data-card.md), [model card](docs/model-card.md), [limitations](docs/limitations.md)
+- [Reproduction/handover](docs/reproduction.md), [evidence index](docs/evidence-index.md), [demo/viva guide](docs/demo-guide.md)
+- [REST schema](docs/openapi.json); docs/documentation-manifest.json links source-report hashes.
 
-Implemented so far:
-- Dataset preparation, grouped splits and baseline models.
-- Spark ETL with output-parity verification.
-- Ray parameter search and MLflow experiment tracking.
-- DVC artifact storage and restore verification.
-- Independent MLflow inference serving.
-- FastAPI prediction, SQLite persistence and manual-review policy.
-- Local login/logout, ownership-filtered history and reviewed feedback.
-
-Separate API/model containers and persistent Compose deployment are implemented.
-Frontend, lifecycle orchestration and monitoring remain under development.
-
-
-## Local accounts and access
-
-Create the three demo accounts interactively:
-
-    python -m scripts.create_users
-
-Passwords are entered privately and stored as Argon2 hashes.
-Passwords and tokens must not be placed in the repository.
-
-- Viewer: authenticated prediction and own prediction history.
-- Operator: prediction review and feedback submission.
-- Maintainer: feedback review and later lifecycle administration.
-
-Feedback begins pending. Maintainers approve or reject it.
-Self-review and repeated decisions are blocked.
-Approval does not immediately retrain or replace a model.
-
-Synthetic workflow feedback is marked synthetic_demo.
-
-## Local services
-
-Run each service in a separate terminal with the AIops environment active:
-
-    bash scripts/start_mlflow.sh
-    bash scripts/start_model_server.sh
-    bash scripts/start_api.sh
-
-- Tracking: http://127.0.0.1:5000
-- Model inference: http://127.0.0.1:5001
-- FastAPI documentation: http://127.0.0.1:8000/docs
-
-Tracking may be stopped while the packaged inference service runs.
-Application records and sessions are stored under state/app/.
-Service state is ignored by Git.
-
-The current API specification is saved in docs/openapi.json.
-
-
-## Docker Compose deployment
-
-Images:
-- aiopsdesk-api:dev
-- aiopsdesk-model:candidate-001
-
-The application database uses the persistent external volume
-aiopsdesk_app_data, initialized from a consistent local database backup.
-Database backups and live state are excluded from Git and image builds.
-
-Start the initialized deployment:
-
-    docker compose up -d --wait --wait-timeout 120
-
-Inspect services:
-
-    docker compose ps
-
-Stop and remove application containers while preserving database storage:
-
-    docker compose down
-
-API documentation: http://127.0.0.1:8000/docs
-
-The model is reachable by the API at http://model:5001 on the internal
-network. Its port is not published to the host.
-
-The API also joins an access bridge network and publishes port 8000
-only on host loopback.
-
-Image identities are recorded in reports/docker_images.json.
-Resolved runtime dependency snapshots are under deploy/docker/.
-Container recreation and persistence were verified through the API.
-
-
-## Containerized frontend
-
-Frontend image: aiopsdesk-frontend:dev
-
-Open http://127.0.0.1:3002 after starting Compose.
-The frontend serves compiled React files using nonroot Nginx.
-Requests under /api/ are forwarded to FastAPI.
-
-The Compose deployment runs frontend, API and model independently.
-Vite is used for development only and must be stopped before Docker
-publishes frontend port 3002.
-
-Node and Nginx base-image digests are recorded under deploy/docker/.
-Frontend HTTP checks are recorded in reports/frontend_container_check.json.
-
-Maintainer approval/rejection through the frontend remains pending
-manual verification.
+Dataset: https://huggingface.co/datasets/Console-AI/IT-helpdesk-synthetic-tickets; pinned revision and license metadata: data/metadata/source.json. Dataset substitution and scope reductions from the original blueprint are explicit in the documentation. A proposed feature is not marked implemented merely because it appears in the blueprint.

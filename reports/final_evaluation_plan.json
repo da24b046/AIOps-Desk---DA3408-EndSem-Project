@@ -1,0 +1,31 @@
+{
+  "frozen_at": "2026-11-11T13:29:40.673856+00:00",
+  "git_sha": "280ba66edbbab2f8f9a047fc6fb5efa33781b3e8",
+  "git_dirty": true,
+  "model_version": "candidate-001",
+  "policy_version": "policy-001",
+  "frozen_inputs": {
+    "train": "4c8a12fa64a11769b316f0e15b0b4dd4e4018a63ff5ef125247fcf11b38927f1",
+    "validation": "684b52974cab32bd430bf5809de1753c36017c20793f585972ecb000ad2aca98",
+    "test": "bc3ef452017ca4d25cff8a7bf69ab47abf31e799efdfb08ff32d73a949d86337",
+    "policy": "2c07c9fd3a45fb26088350d4fc3b8273b5e2387c0af462ebc21c95f27b60ed77",
+    "selected_settings": "6a736ce153ce66c7507d5aa3319d258592ff1a0ec9ee75ec00b68ddd74bbbb94",
+    "evaluation_code": "ac3c686191b3b6fc62a2b3019a0a3d51c52ba2b368fae99121ecc5614d0d5d76",
+    "bundle_files": {
+      "MLmodel": "b6607638540f700fd1fbb7c72f7c92510f3ff4827e36949e427160be93d3ddc6",
+      "artifacts/category.pkl": "8ca7a1e531fcc27b31221e3fa8bfa0cde255cc07a8bdd4d544ae3d81a07ee926",
+      "artifacts/explained_serving_metadata.json": "58541479a01d99d72a20b4a66231aeea0a9d2aea6fea173a6d885dcb85f39de4",
+      "artifacts/priority.pkl": "0921ec0ddc381cc6f86485168cf8b2c54bd5915e209abd4b640c940fc310a5c7",
+      "conda.yaml": "fecb5b3050abcbf45746ee6bbfd4698e17ef4998086853b42488f9fa675930ad",
+      "input_example.json": "65827aef266c81cb771b582ecbfee373ca6ce8b70543069340805fa1dd5e9e4d",
+      "python_env.yaml": "47c2204cfe05d364830089cd236b0dbc317b26dd537cfcefe1ec4f27af7f0b7b",
+      "python_model.pkl": "fb9044797818fb04fb550988f48687c97eae71f36115a060347a2c01738618a7",
+      "requirements.txt": "a79d5a2db5d7e7e6d23ac8b2976ef501c9fef3a1dbb45e7a6b757e435d2e5d49",
+      "serving_input_example.json": "961ca63b8694ac7e8bf3a2e911605c9441acb7f3c3a5540cc18e444294b0b9d9"
+    }
+  },
+  "review_thresholds": {
+    "category_score": 0.6,
+    "priority_score": 0.6
+  }
+}
