@@ -1,0 +1,21 @@
+{
+  "snapshot_directory": "data/feedback/synthetic_demo-a5e9b6e963190a10",
+  "reused": false,
+  "manifest": {
+    "schema_version": 1,
+    "snapshot_id": "synthetic_demo-a5e9b6e963190a10",
+    "label_source": "synthetic_demo",
+    "created_by": "maintainer",
+    "cutoff": "2026-11-11T06:21:31.272281+00:00",
+    "created_at": "2026-11-11T06:21:31.272844+00:00",
+    "unique_predictions": 1,
+    "rows_sha256": "a5e9b6e963190a10544ee456105e52641ac7d92ff58b8d41892325eee2b14bed",
+    "selection_policy": "latest approved correction per prediction and label",
+    "label_counts": {
+      "category": {
+        "Network": 1
+      },
+      "priority": {}
+    }
+  }
+}
