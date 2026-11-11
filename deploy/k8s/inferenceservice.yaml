@@ -1,0 +1,59 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: aiopsdesk-ticket
+  namespace: aiopsdesk
+  annotations:
+    serving.kserve.io/deploymentMode: Standard
+    serving.kserve.io/autoscalerClass: none
+spec:
+  predictor:
+    minReplicas: 1
+    maxReplicas: 1
+    automountServiceAccountToken: false
+    securityContext:
+      fsGroup: 10001
+    containers:
+      - name: kserve-container
+        image: aiopsdesk-model:candidate-001
+        imagePullPolicy: Never
+        ports:
+          - name: http1
+            containerPort: 5001
+            protocol: TCP
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: "1"
+            memory: 1Gi
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10001
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
+        startupProbe:
+          httpGet:
+            path: /ping
+            port: 5001
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 36
+        readinessProbe:
+          httpGet:
+            path: /ping
+            port: 5001
+          periodSeconds: 5
+          timeoutSeconds: 3
+        volumeMounts:
+          - name: temporary
+            mountPath: /tmp
+    volumes:
+      - name: temporary
+        emptyDir:
+          medium: Memory
+          sizeLimit: 128Mi

@@ -1,0 +1,146 @@
+{
+    "apiVersion": "serving.kserve.io/v1beta1",
+    "kind": "InferenceService",
+    "metadata": {
+        "annotations": {
+            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"serving.kserve.io/v1beta1\",\"kind\":\"InferenceService\",\"metadata\":{\"annotations\":{\"serving.kserve.io/autoscalerClass\":\"none\",\"serving.kserve.io/deploymentMode\":\"Standard\"},\"name\":\"aiopsdesk-ticket\",\"namespace\":\"aiopsdesk\"},\"spec\":{\"predictor\":{\"automountServiceAccountToken\":false,\"containers\":[{\"image\":\"aiopsdesk-model:candidate-001\",\"imagePullPolicy\":\"Never\",\"name\":\"kserve-container\",\"ports\":[{\"containerPort\":5001,\"name\":\"http1\",\"protocol\":\"TCP\"}],\"readinessProbe\":{\"httpGet\":{\"path\":\"/ping\",\"port\":5001},\"periodSeconds\":5,\"timeoutSeconds\":3},\"resources\":{\"limits\":{\"cpu\":\"1\",\"memory\":\"1Gi\"},\"requests\":{\"cpu\":\"100m\",\"memory\":\"256Mi\"}},\"securityContext\":{\"allowPrivilegeEscalation\":false,\"capabilities\":{\"drop\":[\"ALL\"]},\"readOnlyRootFilesystem\":true,\"runAsNonRoot\":true,\"runAsUser\":10001},\"startupProbe\":{\"failureThreshold\":36,\"httpGet\":{\"path\":\"/ping\",\"port\":5001},\"periodSeconds\":5,\"timeoutSeconds\":3},\"volumeMounts\":[{\"mountPath\":\"/tmp\",\"name\":\"temporary\"}]}],\"maxReplicas\":1,\"minReplicas\":1,\"securityContext\":{\"fsGroup\":10001},\"volumes\":[{\"emptyDir\":{\"medium\":\"Memory\",\"sizeLimit\":\"128Mi\"},\"name\":\"temporary\"}]}}}\n",
+            "serving.kserve.io/autoscalerClass": "none",
+            "serving.kserve.io/deploymentMode": "Standard"
+        },
+        "creationTimestamp": "2026-11-11T12:10:00Z",
+        "finalizers": [
+            "inferenceservice.finalizers"
+        ],
+        "generation": 1,
+        "name": "aiopsdesk-ticket",
+        "namespace": "aiopsdesk",
+        "resourceVersion": "1780",
+        "uid": "54fc06d4-8d01-4bc8-a2bd-4913d820a183"
+    },
+    "spec": {
+        "predictor": {
+            "automountServiceAccountToken": false,
+            "containers": [
+                {
+                    "image": "aiopsdesk-model:candidate-001",
+                    "imagePullPolicy": "Never",
+                    "name": "kserve-container",
+                    "ports": [
+                        {
+                            "containerPort": 5001,
+                            "name": "http1",
+                            "protocol": "TCP"
+                        }
+                    ],
+                    "readinessProbe": {
+                        "httpGet": {
+                            "path": "/ping",
+                            "port": 5001
+                        },
+                        "periodSeconds": 5,
+                        "timeoutSeconds": 3
+                    },
+                    "resources": {
+                        "limits": {
+                            "cpu": "1",
+                            "memory": "1Gi"
+                        },
+                        "requests": {
+                            "cpu": "100m",
+                            "memory": "256Mi"
+                        }
+                    },
+                    "securityContext": {
+                        "allowPrivilegeEscalation": false,
+                        "capabilities": {
+                            "drop": [
+                                "ALL"
+                            ]
+                        },
+                        "readOnlyRootFilesystem": true,
+                        "runAsNonRoot": true,
+                        "runAsUser": 10001
+                    },
+                    "startupProbe": {
+                        "failureThreshold": 36,
+                        "httpGet": {
+                            "path": "/ping",
+                            "port": 5001
+                        },
+                        "periodSeconds": 5,
+                        "timeoutSeconds": 3
+                    },
+                    "volumeMounts": [
+                        {
+                            "mountPath": "/tmp",
+                            "name": "temporary"
+                        }
+                    ]
+                }
+            ],
+            "maxReplicas": 1,
+            "minReplicas": 1,
+            "securityContext": {
+                "fsGroup": 10001
+            },
+            "volumes": [
+                {
+                    "emptyDir": {
+                        "medium": "Memory",
+                        "sizeLimit": "128Mi"
+                    },
+                    "name": "temporary"
+                }
+            ]
+        }
+    },
+    "status": {
+        "address": {
+            "url": "http://aiopsdesk-ticket-predictor.aiopsdesk.svc.cluster.local"
+        },
+        "components": {
+            "predictor": {
+                "url": "http://aiopsdesk-ticket-predictor-aiopsdesk.example.com"
+            }
+        },
+        "conditions": [
+            {
+                "lastTransitionTime": "2026-11-11T12:10:00Z",
+                "status": "True",
+                "type": "IngressReady"
+            },
+            {
+                "lastTransitionTime": "2026-11-11T12:10:06Z",
+                "message": "ReplicaSet \"aiopsdesk-ticket-predictor-6987d99957\" has successfully progressed.",
+                "reason": "NewReplicaSetAvailable",
+                "status": "True",
+                "type": "PredictorReady"
+            },
+            {
+                "lastTransitionTime": "2026-11-11T12:10:06Z",
+                "status": "True",
+                "type": "Ready"
+            },
+            {
+                "lastTransitionTime": "2026-11-11T12:10:00Z",
+                "severity": "Info",
+                "status": "False",
+                "type": "Stopped"
+            }
+        ],
+        "deploymentMode": "Standard",
+        "modelStatus": {
+            "copies": {
+                "failedCopies": 0,
+                "totalCopies": 1
+            },
+            "states": {
+                "activeModelState": "Loaded",
+                "targetModelState": "Loaded"
+            },
+            "transitionStatus": "UpToDate"
+        },
+        "observedGeneration": 1,
+        "url": "http://aiopsdesk-ticket-aiopsdesk.example.com"
+    }
+}

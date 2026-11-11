@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-11-11T12:14:29.550978+00:00",
+  "context": "aiopsdesk",
+  "namespace": "aiopsdesk",
+  "inference_service": "aiopsdesk-ticket",
+  "deployment_mode": "Standard",
+  "inference_service_ready": true,
+  "server_url": "http://127.0.0.1:15001",
+  "access_method": "deployment_port_forward",
+  "health_status": 200,
+  "validation_rows_checked": 81,
+  "validation_sha256": "684b52974cab32bd430bf5809de1753c36017c20793f585972ecb000ad2aca98",
+  "http_matches_local_bundle": true,
+  "model_version": "candidate-001",
+  "test_set_used": false
+}

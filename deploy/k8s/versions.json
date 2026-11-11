@@ -1,0 +1,9 @@
+{
+  "profile": "aiopsdesk",
+  "driver": "docker",
+  "kubernetes": "v1.37.2",
+  "cert_manager": "v1.21.3",
+  "kserve": "v0.21.0",
+  "deployment_mode": "Standard",
+  "access_method": "kubectl port-forward"
+}
