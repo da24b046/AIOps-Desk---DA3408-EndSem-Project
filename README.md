@@ -126,3 +126,22 @@ only on host loopback.
 Image identities are recorded in reports/docker_images.json.
 Resolved runtime dependency snapshots are under deploy/docker/.
 Container recreation and persistence were verified through the API.
+
+
+## Containerized frontend
+
+Frontend image: aiopsdesk-frontend:dev
+
+Open http://127.0.0.1:3002 after starting Compose.
+The frontend serves compiled React files using nonroot Nginx.
+Requests under /api/ are forwarded to FastAPI.
+
+The Compose deployment runs frontend, API and model independently.
+Vite is used for development only and must be stopped before Docker
+publishes frontend port 3002.
+
+Node and Nginx base-image digests are recorded under deploy/docker/.
+Frontend HTTP checks are recorded in reports/frontend_container_check.json.
+
+Maintainer approval/rejection through the frontend remains pending
+manual verification.

@@ -1,0 +1,13 @@
+{
+  "frontend_url": "http://127.0.0.1:3002",
+  "server": "nginx/1.30.6",
+  "frontend_health": 200,
+  "api_proxy_health": 200,
+  "application_html_available": true,
+  "runtime_configuration_available": true,
+  "backend_readiness": {
+    "status": "ready",
+    "model_version": "candidate-001",
+    "policy_version": "policy-001"
+  }
+}

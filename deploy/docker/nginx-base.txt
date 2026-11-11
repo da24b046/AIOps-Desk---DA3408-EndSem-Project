@@ -1,0 +1,1 @@
+ghcr.io/nginx/nginx-unprivileged@sha256:c3fc8fa482be50ef709c6438eb1bc98d50dbfe5a9b48be90711b8814f4dfd701

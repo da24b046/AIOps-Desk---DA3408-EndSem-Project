@@ -16,16 +16,31 @@
       "architecture": "amd64",
       "os": "linux",
       "configured_user": "app"
+    },
+    "frontend": {
+      "reference": "aiopsdesk-frontend:dev",
+      "image_id": "sha256:ea28acf5bf7c3342deb64c05810d477d9ee56983bfea94b1e29c78336e41a819",
+      "created_at": "2026-11-11T15:10:14.970183095+05:30",
+      "architecture": "amd64",
+      "os": "linux",
+      "configured_user": "101"
     }
   },
   "configuration_sha256": {
     ".dockerignore": "b4428057b27a98495c5206a20c29f6f3eef721d3948cc83de0102cba8f83438f",
-    "compose.yaml": "fd9d8713ec889a5a362433894a19ed2b266d1f0cd2219d973bc6693a73d47f23",
+    "compose.yaml": "a426a812e1a58b2d0886e0a6b997eda72ceeb73793b5b2f99488fdcdb322292d",
     "deploy/docker/Dockerfile.api": "c93e21da1abdf843b75e39d1d1615202ffefe314543a817ac2181e71f094fd7c",
     "deploy/docker/Dockerfile.model": "a28cbfc50a363e4970d8726acb7de1a5caecc2e296aa219baf6ced936a0444bf",
     "deploy/docker/requirements-api.txt": "8a93b65fd6f5fc6dad16c67ee2f743a1f93d246047a518de044457bbd5337fde",
     "deploy/docker/requirements-model.txt": "85e3dcea66cded65047b1ce4165893d6999eeb2d955a7a651358753690fdacc1",
     "deploy/docker/requirements-api.lock.txt": "a5da0781e258c2f2eba742e51cda383fd35405561aa7163768f09c41e8394bc9",
-    "deploy/docker/requirements-model.lock.txt": "6d8c4b50ad40e9bd554d910567dfa825fc5ff08d2267b432c92dd3dfa490ec5b"
+    "deploy/docker/requirements-model.lock.txt": "6d8c4b50ad40e9bd554d910567dfa825fc5ff08d2267b432c92dd3dfa490ec5b",
+    "deploy/docker/Dockerfile.frontend": "326693201483780d3a59cb706aea0ff368ccf4e26fcb6fd4b2b59739374e6bd5",
+    "deploy/docker/nginx.conf": "e67e731ba389d935217d4b999079ff1e1a5e2ac596b59d57096d02c3157b6533",
+    "frontend/package-lock.json": "192859ae788732604ee51c4f02eaa0d228757632b96052d8d381bdc60915424a"
+  },
+  "frontend_base_images": {
+    "node": "node@sha256:01d566e8d94d8c619591d78652babfccd3c6992a3dffa9ed5ab39e11cf6c70e9",
+    "nginx": "ghcr.io/nginx/nginx-unprivileged@sha256:c3fc8fa482be50ef709c6438eb1bc98d50dbfe5a9b48be90711b8814f4dfd701"
   }
 }
