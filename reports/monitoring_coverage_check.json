@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-11-11T13:26:02.136042+00:00",
+  "new_targets_up": {
+    "node-exporter": 1.0,
+    "grafana": 1.0,
+    "reports-exporter": 1.0
+  },
+  "reports_readable": {
+    "pipeline": 1.0,
+    "ci": 1.0,
+    "drift": 1.0
+  },
+  "recorded_report_states": {
+    "pipeline": "succeeded",
+    "ci": "passed",
+    "drift": "insufficient_data"
+  },
+  "host_memory_matches_proc_meminfo": true,
+  "host_memory_bytes": 15914049536,
+  "scope_notes": [
+    "Online application endpoints are covered by existing HTTP probes.",
+    "Host CPU, memory and filesystem metrics are collected by Node Exporter.",
+    "Pipeline, CI and drift values describe saved reports; timestamps show age.",
+    "MLflow tracking is optional and manually health-checked when started.",
+    "Per-container resource metrics are not collected."
+  ]
+}

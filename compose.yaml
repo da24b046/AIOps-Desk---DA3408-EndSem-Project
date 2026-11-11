@@ -1,6 +1,65 @@
 name: aiopsdesk
 
 services:
+  node-exporter:
+    image: prom/node-exporter@sha256:1b4e4438faca4dd7e001dd445d161a4a2091b0fededa84093b3a8dfeae1f1be0
+    pull_policy: never
+    profiles: ["observe"]
+    restart: unless-stopped
+    read_only: true
+    pid: host
+    command:
+      - --path.rootfs=/host
+      - --path.procfs=/host/proc
+      - --path.sysfs=/host/sys
+      - --collector.disable-defaults
+      - --collector.cpu
+      - --collector.meminfo
+      - --collector.filesystem
+      - --collector.loadavg
+    volumes:
+      - /:/host:ro,rslave
+    networks:
+      - app_access
+    cpus: "0.25"
+    mem_limit: 128m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+  reports-exporter:
+    image: aiopsdesk-reports:monitoring-001
+    pull_policy: never
+    profiles: ["observe"]
+    init: true
+    restart: unless-stopped
+    read_only: true
+    command: ["python", "/exporter/reports_exporter.py"]
+    volumes:
+      - ./monitoring/exporters/reports_exporter.py:/exporter/reports_exporter.py:ro
+      - ./reports:/reports:ro
+    networks:
+      - app_access
+    healthcheck:
+      test: ["CMD", "python", "-c", "from urllib.request import urlopen; urlopen('http://127.0.0.1:9108/metrics', timeout=3)"]
+      interval: 15s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    cpus: "0.25"
+    mem_limit: 128m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"
+
   blackbox:
     image: prom/blackbox-exporter@sha256:ea1c7aa3ef3f307cd03e85f34abb604478ccb90b567fc690da0cd9776da76b13
     pull_policy: never
