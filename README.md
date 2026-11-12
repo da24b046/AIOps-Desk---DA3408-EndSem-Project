@@ -239,6 +239,28 @@ Sign in to the UI as maintainer, open **Pipeline**, enter a reason and start a j
 
 The browser workflow is **Spark ETL → Train → Evaluate**. It uses the versioned dataset/splits and selected settings. It does not automatically ingest feedback, repeat Ray tuning or deploy a model.
 
+### Ray dashboard with embedded Grafana
+
+Grafana on port 3001 also hosts Ray's generated dashboards. Sign in to Grafana in a separate tab first, then use the Ray dashboard on port 8265. Grafana login remains enabled.
+
+From the activated project environment, stop an idle previous Ray instance before starting this helper:
+
+```bash
+ray stop
+bash scripts/start_ray_dashboard.sh
+```
+
+The helper points Ray at Grafana 3001 and Prometheus 9090, starts a small authenticated Ray instance and installs its generated dashboards/metric targets. Ray automatically chooses a non-loopback node address so Docker's Prometheus can reach its metrics; its browser dashboard stays bound to loopback. If prompted by Ray, run `ray get-auth-token` and enter the token locally.
+
+Ray's dashboards and targets under `monitoring/ray/` are generated locally and ignored by Git. When finished:
+
+```bash
+ray stop
+python scripts/configure_ray_monitoring.py --clear
+```
+
+Application monitoring continues normally. This dashboard helper does not rerun the six-trial model search or rewrite model-selection reports.
+
 ### Terminal workflows
 
 | Purpose | Command / entry point |

@@ -1,0 +1,4 @@
+*.targets.json
+targets.json
+dashboards/*
+!dashboards/.gitkeep

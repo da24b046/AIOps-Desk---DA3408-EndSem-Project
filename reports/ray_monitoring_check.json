@@ -1,0 +1,16 @@
+{
+  "grafana_url": "http://127.0.0.1:3001",
+  "ray_url": "http://127.0.0.1:8265",
+  "ray_reports_grafana_running": true,
+  "ray_iframe_host": "http://127.0.0.1:3001",
+  "grafana_embedding_allowed": true,
+  "grafana_anonymous_access_enabled": false,
+  "ray_dashboard_definitions": 8,
+  "ray_targets_up": 3,
+  "existing_targets_up": 10,
+  "live_ray_cpu_metrics_present": true,
+  "model_version": "candidate-001",
+  "policy_version": "policy-001",
+  "status": "passed",
+  "browser_session_note": "Sign in to Grafana on 127.0.0.1:3001 before opening embedded panels in the Ray page."
+}
