@@ -2,6 +2,8 @@
 
 **Local IT ticket triage and an AIOps lifecycle demonstration for DA3408.**
 
+Link to video - [Clickhere](https://drive.google.com/file/d/1XAkXYiOSZIpYFgxMsprpc2Z6IbIMR8c2/view?usp=drive_link)
+
 AIOpsDesk reads an IT support ticket's subject and description and suggests a **category, priority and support team**. It explains influential words, flags low-score recommendations for human review, and records corrections without changing the original prediction.
 
 The project uses a small synthetic dataset to demonstrate how data preparation, training, serving, monitoring and controlled updates fit together on one CPU-only machine. It does not diagnose or repair incidents.
@@ -19,8 +21,7 @@ Read the [complete experiment report](report.md), or its [PDF version](report.pd
 - [Work with the pipeline](#work-with-the-pipeline)
 - [Tests and evidence](#tests-and-evidence)
 - [Documentation](#documentation)
-- [What belongs in Git](#what-belongs-in-git)
-- [Scope and limitations](#scope-and-limitations)
+
 
 ## Implemented features
 
@@ -306,41 +307,3 @@ Monitoring combines API/model-call metrics, online HTTP probes, host CPU/memory/
 
 The complete dataset/model description, evidence map and limitations are in [report.md](report.md). The live API exposes interactive contracts at http://127.0.0.1:8000/docs and JSON at http://127.0.0.1:8000/openapi.json. `docs/` intentionally contains only the ten files above.
 
-The builder preserves Markdown sources and the README. Keep its PDF-only dependency separate from the training environment:
-
-```bash
-python -m venv state/docs-venv
-state/docs-venv/bin/python -m pip install reportlab==4.4.9
-state/docs-venv/bin/python scripts/build_project_docs.py --repo .
-```
-
-That command regenerates the five design/manual PDFs and root `report.pdf`. To rebuild only the experiment report, add `--report-only`. It never trains, evaluates models or restarts services.
-
-## What belongs in Git
-
-**Included:** source, configs, Docker/Kubernetes files, dependency locks, DVC pointers, the five PDFs and sources, measured reports, screenshots and selected successful/failure/recovery evidence.
-
-**Excluded:** virtual environments, npm dependencies/build output, Python caches, `.env` files, live SQLite databases, sessions/password state, MLflow runtime storage, DVC cache and restored dataset/model binaries. The small `reproducibility/dvc-store.tar.gz` distribution backup is intentionally included in Git; other submission archives remain outside the repository.
-
-The DVC object store contains reproducible data/model objects. It does not contain the live application accounts/history or historical tracking-server database. Restore or initialize those separately.
-
-## Scope and limitations
-
-This is a completed **small educational implementation**, with explicit simplifications from the original blueprint. It uses a synthetic dataset, a small held-out sample and uncalibrated scores. Retraining/release actions are controlled demonstrations rather than unattended production automation. Training/Projects use the local host environment. KServe deploys the model only in a separate phase.
-
-TLS/encrypted-storage verification, persistent prediction idempotency, batch prediction, scheduled drift/retraining, per-container resource collection, automatic orphan-job recovery and sustained-capacity/browser automation tests are outside the demonstrated scope. The [project report](report.md) describes the implemented workflows and measured results.
-
-## Prepare the final Git submission
-
-The working tree contains the submission cleanup and new report. Review and commit it before pushing:
-
-```bash
-git status --short
-git diff --check
-git add -A
-git diff --cached --stat
-git commit -m "Prepare final AIOpsDesk submission and experiment report"
-git push origin main
-```
-
-Push code, the report, the ten design/manual files, machine-readable evidence and supplied screenshots. Include `reproducibility/dvc-store.tar.gz` and `scripts/restore_submission.py`: they let evaluators restore the data/model objects from the repository alone. Keep live accounts, databases, local credentials and caches out of Git. `reports/submission_check.json` records the final source audit; its checks do not claim that every broader blueprint feature was implemented. This preparation does not commit or push on your behalf.
